@@ -7,6 +7,7 @@
 <meta name="description" content="6.6kW solar from $2,990 after rebate. Cut your electricity bill up to 70%. Free no-obligation quote in 60 seconds. CEC-accredited installers, 25-year warranty.">
 <meta name="robots" content="noindex,follow">
 <meta property="og:title" content="Cut your power bill 70% with solar — free quote">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a1520'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%23ffb020'/%3E%3Cg stroke='%23ffb020' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M32 8v5M32 51v5M8 32h5M51 32h5'/%3E%3C/g%3E%3C/svg%3E">
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
@@ -78,11 +79,18 @@ section{padding:62px 0}
 .head p{color:var(--soft)}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px}
-.card i{font-style:normal;font-size:26px;display:block;margin-bottom:10px}
+.card i{display:grid;place-items:center;width:44px;height:44px;border-radius:11px;
+  background:linear-gradient(150deg,#fff3dc,#ffe6b8);color:#a86a00;margin-bottom:14px;font-style:normal}
+.card i svg{width:22px;height:22px}
 .card h3{font-size:19px}.card p{font-size:15.5px;color:var(--soft);margin:0}
 
 /* savings table */
 .calc{background:var(--white);border-block:1px solid var(--line)}
+.calcgrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:26px;align-items:center;max-width:980px;margin:0 auto}
+.roof{margin:0;background:linear-gradient(170deg,#fbfdfe,#eef5f9);border:1px solid var(--line);
+  border-radius:var(--r);padding:12px 12px 4px}
+.roof svg{width:100%;height:auto;display:block}
+.roof figcaption{font-size:13px;color:var(--soft);padding:10px 6px 12px;border-top:1px solid var(--line);margin-top:6px;line-height:1.45}
 table{width:100%;border-collapse:collapse;max-width:820px;margin:0 auto;background:var(--white);
 border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:16px}
 th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line)}
@@ -98,7 +106,12 @@ tr:last-child td{border-bottom:0}
 
 .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .rev{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:22px}
-.rev p{font-size:15.5px;margin-bottom:9px}.rev b{font-size:14px;color:var(--amber-d)}
+.rev p{font-size:15.5px;margin-bottom:9px}
+.rev b{font-size:14px;color:var(--amber-d);display:flex;align-items:center;gap:10px}
+.av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:12.5px;
+  font-weight:800;color:#2a1d03;letter-spacing:.4px;background:linear-gradient(140deg,#ffc95a,#e08c00);flex:0 0 34px}
+.rev:nth-child(2) .av{background:linear-gradient(140deg,#8fd6c0,#0f9d63);color:#04231a}
+.rev:nth-child(3) .av{background:linear-gradient(140deg,#8fb6d6,#1d3346);color:#fff}
 .st{color:#f0a92b;letter-spacing:2px;margin-bottom:8px}
 
 details{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:15px 18px;margin:0 auto 10px;max-width:760px}
@@ -119,6 +132,7 @@ background:var(--night);border-top:1px solid #24425a}
 .sticky .b2{background:#1d3346;color:#fff}
 
 @media(max-width:900px){
+.calcgrid{grid-template-columns:1fr;gap:20px}
 .hero .wrap{grid-template-columns:1fr;gap:30px}
 .g3,.revs,.steps{grid-template-columns:1fr}
 section{padding:46px 0}
@@ -186,9 +200,9 @@ th:nth-child(2),td:nth-child(2){display:none}}
     <div class="head"><h2>Why homeowners switch before winter</h2>
     <p>Electricity prices in NSW rose again this year. Solar is the one bill you can lock in.</p></div>
     <div class="g3">
-      <div class="card"><i>💰</i><h3>Pays for itself</h3><p>Typical 6.6kW system returns its cost in 3–4 years, then it's free power for two decades.</p></div>
-      <div class="card"><i>🏠</i><h3>Adds home value</h3><p>Buyers pay a premium for a house that comes with a paid-off solar system.</p></div>
-      <div class="card"><i>🔒</i><h3>Price protection</h3><p>Every price rise makes your panels worth more. You stop being exposed.</p></div>
+      <div class="card"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 5-6"/><path d="M15 9h4v4"/><path d="M3 21h18"/></svg></i><h3>Pays for itself</h3><p>Typical 6.6kW system returns its cost in 3–4 years, then it's free power for two decades.</p></div>
+      <div class="card"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></i><h3>Adds home value</h3><p>Buyers pay a premium for a house that comes with a paid-off solar system.</p></div>
+      <div class="card"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></i><h3>Price protection</h3><p>Every price rise makes your panels worth more. You stop being exposed.</p></div>
     </div>
   </div>
 </section>
@@ -196,6 +210,68 @@ th:nth-child(2),td:nth-child(2){display:none}}
 <section class="calc">
   <div class="wrap">
     <div class="head"><h2>What Sydney homes actually save</h2><p>Based on a 6.6kW system, 40% self-consumption, current NSW tariffs.</p></div>
+    <div class="calcgrid">
+    <figure class="roof">
+      <svg viewBox="0 0 420 330" role="img" aria-label="Illustration of a house with rooftop solar panels feeding the meter and lowering the power bill">
+        <defs>
+          <linearGradient id="pan" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#1b3a52"/><stop offset="1" stop-color="#25506e"/>
+          </linearGradient>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff5e0"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="420" height="330" fill="url(#sky)" rx="14"/>
+
+        <!-- sun -->
+        <circle cx="330" cy="62" r="26" fill="#ffb020"/>
+        <g stroke="#ffb020" stroke-width="3.4" stroke-linecap="round" opacity=".75">
+          <path d="M330 16 v-10"/><path d="M330 118 v10"/><path d="M284 62 h-10"/><path d="M376 62 h10"/>
+          <path d="M297 29 l-7-7"/><path d="M363 95 l7 7"/><path d="M363 29 l7-7"/><path d="M297 95 l-7 7"/>
+        </g>
+        <g stroke="#ffb020" stroke-width="2.4" stroke-dasharray="4 7" opacity=".65">
+          <path d="M306 92 L214 168"/><path d="M330 96 L246 172"/>
+        </g>
+
+        <!-- house -->
+        <path d="M60 176 L176 106 L292 176 Z" fill="#e6edf2"/>
+        <path d="M176 106 L292 176 L292 184 L176 116 Z" fill="#cdd9e2"/>
+        <rect x="86" y="176" width="180" height="112" rx="4" fill="#f4f8fa" stroke="#d5e0e8" stroke-width="1.6"/>
+        <rect x="104" y="200" width="46" height="40" rx="4" fill="#dceaf3" stroke="#c3d5e2" stroke-width="1.4"/>
+        <path d="M127 200 v40 M104 220 h46" stroke="#c3d5e2" stroke-width="1.4"/>
+        <rect x="196" y="212" width="40" height="76" rx="4" fill="#dceaf3" stroke="#c3d5e2" stroke-width="1.4"/>
+        <circle cx="228" cy="252" r="2.6" fill="#8fa9bb"/>
+
+        <!-- panels on roof -->
+        <g>
+          <path d="M96 172 L172 126 L250 172 L174 218 Z" fill="url(#pan)"/>
+          <g stroke="#4d7ea3" stroke-width="1.5" opacity=".8">
+            <path d="M121 157 L199 202"/><path d="M147 141 L225 187"/>
+            <path d="M134 187 L211 141"/><path d="M160 202 L237 157"/>
+          </g>
+          <path d="M96 172 L172 126 L250 172 L174 218 Z" fill="none" stroke="#0e2130" stroke-width="2.4"/>
+          <path d="M172 126 L250 172" stroke="#7fb2d6" stroke-width="1.6" opacity=".7"/>
+        </g>
+
+        <!-- energy flow to meter -->
+        <g stroke="#0f9d63" stroke-width="2.6" fill="none" stroke-linecap="round">
+          <path d="M266 244 h34" stroke-dasharray="6 6"/>
+          <path d="M296 238 l8 6-8 6" stroke-dasharray="0"/>
+        </g>
+        <rect x="306" y="214" width="86" height="62" rx="9" fill="#fff" stroke="#d5e0e8" stroke-width="1.6"/>
+        <text x="318" y="236" font-family="-apple-system,Segoe UI,Arial" font-size="11" font-weight="700" fill="#5d6f7e" letter-spacing=".8">YOUR BILL</text>
+        <g>
+          <rect x="318" y="244" width="14" height="20" rx="2.5" fill="#dbe6ee"/>
+          <rect x="338" y="250" width="14" height="14" rx="2.5" fill="#c7d7e3"/>
+          <rect x="358" y="256" width="14" height="8" rx="2.5" fill="#0f9d63"/>
+        </g>
+        <path d="M322 240 q26 18 52 26" stroke="#0f9d63" stroke-width="2" fill="none" opacity=".45" stroke-dasharray="4 4"/>
+
+        <!-- ground -->
+        <path d="M40 288 H392" stroke="#dde7ed" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <figcaption>Daytime generation goes to the house first; only the excess is exported.</figcaption>
+    </figure>
     <table>
       <tr><th>Your quarterly bill</th><th>Recommended system</th><th>Est. saving / year</th></tr>
       <tr><td>Under $400</td><td>5kW</td><td>$780</td></tr>
@@ -203,6 +279,7 @@ th:nth-child(2),td:nth-child(2){display:none}}
       <tr><td>$700 – $1,000</td><td>10kW</td><td>$2,150</td></tr>
       <tr><td>Over $1,000</td><td>13kW + battery</td><td>$3,300</td></tr>
     </table>
+    </div>
     <p class="tnote">Indicative only — your exact figures come from your real usage data on the call.</p>
   </div>
 </section>
@@ -222,9 +299,9 @@ th:nth-child(2),td:nth-child(2){display:none}}
   <div class="wrap">
     <div class="head"><h2>What customers say</h2></div>
     <div class="revs">
-      <div class="rev"><div class="st">★★★★★</div><p>"First full quarter after install my bill went from $840 to $190. Installers were done by 3pm."</p><b>— Craig B., Penrith</b></div>
-      <div class="rev"><div class="st">★★★★★</div><p>"Got three quotes. These were the only ones who showed the rebate as a line item instead of hiding it."</p><b>— Melissa H., Ryde</b></div>
-      <div class="rev"><div class="st">★★★★★</div><p>"No pushy sales visit — one phone call, emailed proposal, decided in my own time."</p><b>— Raj P., Blacktown</b></div>
+      <div class="rev"><div class="st">★★★★★</div><p>"First full quarter after install my bill went from $840 to $190. Installers were done by 3pm."</p><b><span class="av">CB</span> Craig B., Penrith</b></div>
+      <div class="rev"><div class="st">★★★★★</div><p>"Got three quotes. These were the only ones who showed the rebate as a line item instead of hiding it."</p><b><span class="av">MH</span> Melissa H., Ryde</b></div>
+      <div class="rev"><div class="st">★★★★★</div><p>"No pushy sales visit — one phone call, emailed proposal, decided in my own time."</p><b><span class="av">RP</span> Raj P., Blacktown</b></div>
     </div>
   </div>
 </section>

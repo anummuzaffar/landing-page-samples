@@ -6,6 +6,7 @@
 <title>Google Ads Landing Pages — Sample Builds</title>
 <meta name="description" content="Three live landing pages built for paid traffic: aesthetics clinic, dental implants, and solar. Form above the fold, no navigation, conversion tracking wired.">
 <meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0f14'/%3E%3Cpath d='M18 40l10-16 8 11 6-8 6 13z' fill='%233ddc97'/%3E%3Ccircle cx='44' cy='19' r='5' fill='%235aa9ff'/%3E%3C/svg%3E">
 <style>
 :root{
  --bg:#0b0f14; --bg2:#111820; --card:#151d26; --line:#22303d;
@@ -71,7 +72,10 @@ section{padding:56px 0}
 .band{background:var(--bg2);border-block:1px solid var(--line)}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .inc{background:#0f1720;border:1px solid var(--line);border-radius:14px;padding:22px}
-.inc i{font-style:normal;font-size:22px;display:block;margin-bottom:10px}
+.inc i{display:grid;place-items:center;width:40px;height:40px;border-radius:11px;font-style:normal;
+ background:linear-gradient(150deg,rgba(61,220,151,.16),rgba(90,169,255,.14));margin-bottom:13px}
+.inc i svg{width:20px;height:20px;fill:none;stroke:var(--acc);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.inc:nth-child(even) i svg{stroke:var(--acc2)}
 .inc h3{font-size:16.5px;margin-bottom:5px}
 .inc p{font-size:14.5px;color:var(--dim);margin:0}
 
@@ -190,14 +194,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
     <div class="sec-head"><div><h2>What's in every page I build</h2>
       <p>Nothing here is an add-on or an upsell — it's the baseline.</p></div></div>
     <div class="g4">
-      <div class="inc"><i>🎯</i><h3>One goal, no exits</h3><p>No menu, no outbound links. The only two actions are submit the form or tap to call.</p></div>
-      <div class="inc"><i>📱</i><h3>Mobile-first</h3><p>Form on the first screen at 390px wide, plus a sticky call/book bar pinned to the bottom.</p></div>
-      <div class="inc"><i>📊</i><h3>Tracking wired</h3><p>GTM container, <code>generate_lead</code> event with value, phone-click, form-start, form-error, scroll depth.</p></div>
-      <div class="inc"><i>⚡</i><h3>Fast by design</h3><p>Single file, inline CSS, system fonts, no libraries. Nothing to block the first paint.</p></div>
-      <div class="inc"><i>🔎</i><h3>On-page SEO</h3><p>Title, meta, single H1, semantic headings, LocalBusiness + FAQ schema.</p></div>
-      <div class="inc"><i>🛡️</i><h3>Spam handled</h3><p>Honeypot field plus client-side validation, so your CRM stays clean.</p></div>
-      <div class="inc"><i>🔌</i><h3>Connects anywhere</h3><p>Form posts to your CRM, email, Zapier, or Google Sheet — whatever you already use.</p></div>
-      <div class="inc"><i>🧪</i><h3>Built to test</h3><p>Headline, offer and hero swap in minutes, so a second variant is cheap to run.</p></div>
+      <div class="inc"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></i><h3>One goal, no exits</h3><p>No menu, no outbound links. The only two actions are submit the form or tap to call.</p></div>
+      <div class="inc"><i><svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></i><h3>Mobile-first</h3><p>Form on the first screen at 390px wide, plus a sticky call/book bar pinned to the bottom.</p></div>
+      <div class="inc"><i><svg viewBox="0 0 24 24"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></i><h3>Tracking wired</h3><p>GTM container, <code>generate_lead</code> event with value, phone-click, form-start, form-error, scroll depth.</p></div>
+      <div class="inc"><i><svg viewBox="0 0 24 24"><path d="M13 2.5L4.5 13.5H11l-1 8 8.5-11H12z"/></svg></i><h3>Fast by design</h3><p>Single file, inline CSS, system fonts, no libraries. Nothing to block the first paint.</p></div>
+      <div class="inc"><i><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></i><h3>On-page SEO</h3><p>Title, meta, single H1, semantic headings, LocalBusiness + FAQ schema.</p></div>
+      <div class="inc"><i><svg viewBox="0 0 24 24"><path d="M12 2.8l7.5 3v6c0 4.6-3.1 8.3-7.5 9.4-4.4-1.1-7.5-4.8-7.5-9.4v-6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></i><h3>Spam handled</h3><p>Honeypot field plus client-side validation, so your CRM stays clean.</p></div>
+      <div class="inc"><i><svg viewBox="0 0 24 24"><path d="M9 2.5v6"/><path d="M15 2.5v6"/><path d="M6.5 8.5h11v4a5.5 5.5 0 01-11 0z"/><path d="M12 18v3.5"/></svg></i><h3>Connects anywhere</h3><p>Form posts to your CRM, email, Zapier, or Google Sheet — whatever you already use.</p></div>
+      <div class="inc"><i><svg viewBox="0 0 24 24"><path d="M9.5 2.5v6.2L4.7 17a2.6 2.6 0 002.3 4h10a2.6 2.6 0 002.3-4l-4.8-8.3V2.5"/><path d="M8.5 2.5h7"/><path d="M7.2 14.5h9.6"/></svg></i><h3>Built to test</h3><p>Headline, offer and hero swap in minutes, so a second variant is cheap to run.</p></div>
     </div>
   </div>
 </section>
