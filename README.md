@@ -2,7 +2,7 @@
 
 Three complete, working landing pages built for paid traffic — plus an index page that presents them.
 
-**Live:** https://USERNAME.github.io/REPO/
+**Live:** https://anummuzaffar.github.io/landing-page-samples/
 
 | Page | Niche | Structure |
 |------|-------|-----------|
