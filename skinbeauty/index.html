@@ -140,14 +140,12 @@ section{padding:58px 0}
 .chk b{color:var(--plum)}
 
 /* real results */
-.resultwrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:38px;align-items:center;max-width:1000px;margin:0 auto}
+.bagrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto}
 .ba{margin:0;background:var(--white);border:1px solid var(--line);border-radius:16px;
-  padding:14px;box-shadow:0 16px 40px rgba(75,60,78,.1)}
-.ba img{width:100%;height:auto;border-radius:11px;display:block}
-.balabels{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.balabels span{text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--plum);background:var(--champ-soft);border:1px solid rgba(230,199,156,.8);padding:6px;border-radius:8px}
-.ba figcaption{margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-size:13px;color:var(--grey);text-align:center}
+  padding:10px;box-shadow:0 14px 34px rgba(75,60,78,.09)}
+.ba img{width:100%;height:auto;border-radius:10px;display:block}
+.baftr{max-width:640px;margin:30px auto 0;text-align:center}
+.baftr p{color:var(--grey);font-size:16px}
 .todo{background:#fdf6e9;border:1px dashed #e0c58c;color:#7c5b23;font-size:13px;
   padding:11px 14px;border-radius:10px;margin-top:16px;text-align:center}
 
@@ -195,7 +193,8 @@ footer a{color:var(--champ)}
 .sticky .btn{flex:1;padding:15px 8px;font-size:16px}
 
 @media(max-width:900px){
-  .hero .wrap,.aiwrap,.resultwrap{grid-template-columns:1fr;gap:28px}
+  .hero .wrap,.aiwrap{grid-template-columns:1fr;gap:28px}
+  .bagrid{grid-template-columns:1fr;max-width:420px}
   .g3,.revs,.steps{grid-template-columns:1fr}
   .trust .wrap{grid-template-columns:1fr 1fr}
   section{padding:44px 0}
@@ -400,25 +399,21 @@ footer a{color:var(--champ)}
 
 <section>
   <div class="wrap">
-    <div class="center"><h2>Real results, real clients</h2><p>Same client, same lighting, after treatment at our Rouse Hill clinic.</p></div>
+    <div class="center"><h2>MicroHydra-LIFT results</h2>
+      <p>Client photos from our Rouse Hill treatment room. Eyes covered for privacy.</p></div>
 
-    <div class="resultwrap">
-      <figure class="ba">
-        <img src="assets/before-after.jpg" width="410" height="322" loading="lazy"
-             alt="Client before and after treatment at Skin &amp; Beauty at Hills, with redness and uneven tone visibly reduced">
-        <div class="balabels"><span>Before</span><span>After</span></div>
-        <figcaption>Redness and uneven tone visibly calmed, texture smoother.</figcaption>
-      </figure>
+    <div class="bagrid">
+      <figure class="ba"><img src="assets/ba1.jpg" width="332" height="345" loading="lazy"
+        alt="Client before and after a MicroHydra-LIFT facial, showing calmer, more even skin"></figure>
+      <figure class="ba"><img src="assets/ba3.jpg" width="332" height="342" loading="lazy"
+        alt="Client before and after a MicroHydra-LIFT facial, showing brighter, hydrated skin"></figure>
+      <figure class="ba"><img src="assets/ba4.jpg" width="332" height="340" loading="lazy"
+        alt="Client forehead and cheeks before and after a MicroHydra-LIFT facial, showing smoother texture"></figure>
+    </div>
 
-      <div>
-        <h3 style="font-size:24px">Your skin, measured before anything starts</h3>
-        <p style="color:var(--grey)">Results like this begin with knowing what you're treating. The free AI analysis maps your pigmentation, texture and hydration first. Then your therapist builds the plan around what the scan actually shows.</p>
-        <ul class="chk" style="margin-bottom:22px">
-          <li>✅ <span><b>No guesswork.</b> The scan sets the starting point.</span></li>
-          <li>✅ <span><b>Progress you can see.</b> We re-scan so you can compare, not just hope.</span></li>
-        </ul>
-        <a class="btn b3" href="#book" data-cta="results-book">Book my free analysis →</a>
-      </div>
+    <div class="baftr">
+      <p>Results like these start with knowing what you are treating. The free analysis maps your pigmentation, texture and hydration first, then your therapist builds the plan around what the scan actually shows.</p>
+      <a class="btn b3" href="#book" data-cta="results-book">Book my free analysis →</a>
     </div>
   </div>
 </section>
@@ -461,7 +456,7 @@ footer a{color:var(--champ)}
   <div class="wrap">
     <div class="center"><h2>Quick questions</h2></div>
     <div class="faq">
-      <details open><summary>Is the skin analysis really free?</summary><p>Yes. AI skin imaging plus a qualified therapist's assessment, normally $100, at no cost and with no obligation to book any treatment afterwards.</p></details>
+      <details open><summary>Is the skin analysis really free?</summary><p>Yes. AI skin imaging plus a qualified therapist's assessment, normally $100, at no cost and with no obligation to book any treatment afterwards. It's open to everyone, whether you've been to us before or not.</p></details>
       <details><summary>Do I need to know which treatment I want?</summary><p>No. Choose "not sure yet" and the analysis is designed to answer exactly that, and we'll talk it through before anything is booked.</p></details>
       <details><summary>How long does the appointment take?</summary><p>Allow about 30 minutes for the imaging, the assessment and your treatment plan.</p></details>
       <details><summary>Where are you located?</summary><p>Rouse Hill, NSW, minutes from Rouse Hill Town Centre with easy parking. We're open seven days.</p></details>
