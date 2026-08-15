@@ -43,7 +43,8 @@ img,svg{max-width:100%;display:block}
 .topbar{background:var(--plum);color:#efe8ec}
 .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0}
 .brand{display:flex;align-items:center;gap:12px}
-.brand svg{width:44px;height:44px;flex:0 0 44px}
+.brand img{width:46px;height:46px;flex:0 0 46px;border-radius:50%;
+  box-shadow:0 0 0 1px rgba(230,199,156,.45),0 2px 10px rgba(0,0,0,.25)}
 .brand .txt{font-family:"Playfair Display",Georgia,serif;font-size:17px;color:#fff;line-height:1.15}
 .brand .txt small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--champ);font-family:Inter,Arial,sans-serif}
 .topbar .loc{font-size:13.5px;opacity:.85}
@@ -138,14 +139,15 @@ section{padding:58px 0}
 .chk li{display:flex;gap:11px;font-size:16.5px}
 .chk b{color:var(--plum)}
 
-/* photo slots */
-.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.slot{aspect-ratio:4/3;border-radius:var(--r);border:1.5px dashed #d3c8c1;background:
-  repeating-linear-gradient(135deg,#faf8f6 0 12px,#f4efeb 12px 24px);
-  display:grid;place-items:center;text-align:center;padding:18px;color:#8f8a92}
-.slot svg{width:30px;height:30px;stroke:#b9aca4;fill:none;stroke-width:1.5;margin:0 auto 10px}
-.slot b{display:block;font-size:14.5px;color:var(--grey)}
-.slot small{font-size:12.5px}
+/* real results */
+.resultwrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:38px;align-items:center;max-width:1000px;margin:0 auto}
+.ba{margin:0;background:var(--white);border:1px solid var(--line);border-radius:16px;
+  padding:14px;box-shadow:0 16px 40px rgba(75,60,78,.1)}
+.ba img{width:100%;height:auto;border-radius:11px;display:block}
+.balabels{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.balabels span{text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--plum);background:var(--champ-soft);border:1px solid rgba(230,199,156,.8);padding:6px;border-radius:8px}
+.ba figcaption{margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-size:13px;color:var(--grey);text-align:center}
 .todo{background:#fdf6e9;border:1px dashed #e0c58c;color:#7c5b23;font-size:13px;
   padding:11px 14px;border-radius:10px;margin-top:16px;text-align:center}
 
@@ -193,8 +195,8 @@ footer a{color:var(--champ)}
 .sticky .btn{flex:1;padding:15px 8px;font-size:16px}
 
 @media(max-width:900px){
-  .hero .wrap,.aiwrap{grid-template-columns:1fr;gap:28px}
-  .g3,.revs,.shots,.steps{grid-template-columns:1fr}
+  .hero .wrap,.aiwrap,.resultwrap{grid-template-columns:1fr;gap:28px}
+  .g3,.revs,.steps{grid-template-columns:1fr}
   .trust .wrap{grid-template-columns:1fr 1fr}
   section{padding:44px 0}
   body{padding-bottom:74px}
@@ -211,10 +213,7 @@ footer a{color:var(--champ)}
 <div class="topbar">
   <div class="wrap">
     <div class="brand">
-      <svg viewBox="0 0 100 100" role="img" aria-label="Skin & Beauty at Hills">
-        <circle cx="50" cy="50" r="48" fill="#4B3C4E" stroke="#E6C79C" stroke-width="2.6"/>
-        <text x="50" y="64" font-family="Georgia,serif" font-size="46" fill="#E6C79C" text-anchor="middle" letter-spacing="-2">SB</text>
-      </svg>
+      <img src="assets/logo.png" width="46" height="46" alt="Skin &amp; Beauty at Hills logo">
       <div class="txt">Skin&amp;Beauty<small>AT HILLS</small></div>
     </div>
     <span class="loc">Rouse Hill, NSW · Open 7 days</span>
@@ -401,13 +400,26 @@ footer a{color:var(--champ)}
 
 <section>
   <div class="wrap">
-    <div class="center"><h2>Results from our treatment room</h2><p>Real client photos, taken in the same clinic lighting.</p></div>
-    <div class="shots">
-      <div class="slot"><div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="12" cy="12" r="3.4"/><path d="M7.5 5l1.4-2h6.2l1.4 2"/></svg><b>Before / after 1</b><small>photo drops in here</small></div></div>
-      <div class="slot"><div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="12" cy="12" r="3.4"/><path d="M7.5 5l1.4-2h6.2l1.4 2"/></svg><b>Before / after 2</b><small>photo drops in here</small></div></div>
-      <div class="slot"><div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="12" cy="12" r="3.4"/><path d="M7.5 5l1.4-2h6.2l1.4 2"/></svg><b>Treatment room</b><small>photo drops in here</small></div></div>
+    <div class="center"><h2>Real results, real clients</h2><p>Same client, same lighting — after treatment at our Rouse Hill clinic.</p></div>
+
+    <div class="resultwrap">
+      <figure class="ba">
+        <img src="assets/before-after.jpg" width="410" height="322" loading="lazy"
+             alt="Client before and after treatment at Skin &amp; Beauty at Hills — redness and uneven tone visibly reduced">
+        <div class="balabels"><span>Before</span><span>After</span></div>
+        <figcaption>Redness and uneven tone visibly calmed, texture smoother.</figcaption>
+      </figure>
+
+      <div>
+        <h3 style="font-size:24px">Your skin, measured before anything starts</h3>
+        <p style="color:var(--grey)">Results like this begin with knowing what you're treating. The free AI analysis maps your pigmentation, texture and hydration first — then your therapist builds the plan around what the scan actually shows.</p>
+        <ul class="chk" style="margin-bottom:22px">
+          <li>✅ <span><b>No guesswork</b> — the scan sets the starting point.</span></li>
+          <li>✅ <span><b>Progress you can see</b> — we re-scan so you can compare, not just hope.</span></li>
+        </ul>
+        <a class="btn b3" href="#book" data-cta="results-book">Book my free analysis →</a>
+      </div>
     </div>
-    <p class="todo">📷 Photo files needed — send the originals (not screenshots) and these three slots are filled.</p>
   </div>
 </section>
 
