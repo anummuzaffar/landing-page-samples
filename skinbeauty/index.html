@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
 <title>Free AI Skin Analysis Rouse Hill | Skin &amp; Beauty at Hills</title>
 <meta name="description" content="Free AI-powered expert skin analysis in Rouse Hill. AI skin imaging plus a qualified therapist assessment, worth $100. Pick your treatment and book in 30 seconds.">
 <meta name="robots" content="noindex,follow">
@@ -28,7 +29,9 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   --r:14px; --shadow:0 18px 46px rgba(75,60,78,.14);
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+/* keep the brand palette on phones that force a dark theme (Samsung Internet, some Chrome builds) */
+:root{color-scheme:only light}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;forced-color-adjust:none}
 body{margin:0;background:var(--pearl);color:var(--ink);
   font:400 17px/1.62 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Manrope,Roboto,Helvetica,Arial,sans-serif}
 h1,h2,h3{font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:400;
