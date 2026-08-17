@@ -308,16 +308,16 @@ footer a{color:var(--champ)}
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6.5 8.5a7 7 0 000 7"/><path d="M10 6a11 11 0 000 12"/><path d="M14 4.5a15 15 0 000 15"/><path d="M18.5 8.5a7 7 0 010 7"/></svg> HiFU Skin Needling</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Advanced Facial Treatments">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.8M12 18.7v2.8M2.5 12h2.8M18.7 12h2.8M5.4 5.4l2 2M16.6 16.6l2 2M18.6 5.4l-2 2M7.4 16.6l-2 2"/></svg> Advanced Facials</span></label>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.8M12 18.7v2.8M2.5 12h2.8M18.7 12h2.8M5.4 5.4l2 2M16.6 16.6l2 2M18.6 5.4l-2 2M7.4 16.6l-2 2"/></svg> Advanced Facial Treatments</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Skin Analysis & Treatment Plan">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M15.6 15.6L21 21"/><path d="M8.6 11h4.8M11 8.6v4.8"/></svg> Skin Analysis &amp; Plan</span></label>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M15.6 15.6L21 21"/><path d="M8.6 11h4.8M11 8.6v4.8"/></svg> Skin Analysis &amp; Treatment Plan</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Aesthetics Nurse Consultation">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3.2l6.4 2.6v5.4c0 3.9-2.7 7.1-6.4 8-3.7-.9-6.4-4.1-6.4-8V5.8z"/><path d="M12 8.6v5.2M9.4 11.2h5.2"/></svg> Aesthetics Nurse</span></label>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3.2l6.4 2.6v5.4c0 3.9-2.7 7.1-6.4 8-3.7-.9-6.4-4.1-6.4-8V5.8z"/><path d="M12 8.6v5.2M9.4 11.2h5.2"/></svg> Aesthetics Nurse Consultation</span></label>
 
-          <label class="pick"><input type="radio" name="service" value="Not sure / need advice">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.4 9.3a2.7 2.7 0 015.2.9c0 1.8-2.6 2.2-2.6 3.9"/><path d="M12 17.4h.01"/></svg> Not sure / advice</span></label>
+          <label class="pick"><input type="radio" name="service" value="Not Sure / Need Advice">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.4 9.3a2.7 2.7 0 015.2.9c0 1.8-2.6 2.2-2.6 3.9"/><path d="M12 17.4h.01"/></svg> Not Sure / Need Advice</span></label>
         </div>
 
         <div class="picklabel">2. Your details</div>
@@ -392,7 +392,7 @@ footer a{color:var(--champ)}
     <div class="center"><h2>Quick questions</h2></div>
     <div class="faq">
       <details open><summary>Is the skin analysis really free?</summary><p>Yes. AI skin imaging plus a qualified therapist's assessment, normally $100, at no cost and with no obligation to book any treatment afterwards. It's open to everyone, whether you've been to us before or not.</p></details>
-      <details><summary>Do I need to know which treatment I want?</summary><p>No. Choose "not sure / need advice" and the analysis is designed to answer exactly that, and we'll talk it through before anything is booked.</p></details>
+      <details><summary>Do I need to know which treatment I want?</summary><p>No. Choose "Not Sure / Need Advice" and the analysis is designed to answer exactly that, and we'll talk it through before anything is booked.</p></details>
       <details><summary>How long does the appointment take?</summary><p>Allow about 30 minutes for the imaging, the assessment and your treatment plan.</p></details>
       <details><summary>Where are you located?</summary><p>Rouse Hill, NSW, minutes from Rouse Hill Town Centre with easy parking. We're open Tuesday to Saturday.</p></details>
     </div>
@@ -497,7 +497,7 @@ footer a{color:var(--champ)}
   function done(service){
     dl.push({event:'generate_lead', form_name:'free_skin_analysis', service:service, value:100, currency:'AUD'});
     // gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/FormLabel','value':100,'currency':'AUD'});
-    echo.textContent = service.indexOf('Not sure') === 0 ? 'appointment' : service;
+    echo.textContent = service.indexOf('Not Sure') === 0 ? 'appointment' : service;
     form.style.display = 'none';
     thanks.classList.add('on');
     thanks.scrollIntoView({block:'center'});
