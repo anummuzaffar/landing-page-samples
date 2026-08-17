@@ -55,6 +55,14 @@ img,svg{max-width:100%;display:block}
   border:1px solid rgba(230,199,156,.55);padding:7px 15px;border-radius:99px;white-space:nowrap}
 .topbar a.tel:hover{background:var(--champ);color:var(--plum);border-color:var(--champ)}
 
+/* page body: just the form, centred */
+.lp{position:relative;overflow:hidden;padding:36px 0 44px}
+.lp:before{content:"";position:absolute;inset:0;
+  background:radial-gradient(700px 340px at 50% -14%,#fff 0%,rgba(255,255,255,0) 62%),
+             linear-gradient(180deg,var(--taupe-soft) 0%,var(--pearl) 78%)}
+.wrap.narrow{position:relative;width:min(620px,92vw)}
+.revsec{background:var(--white);border-top:1px solid var(--line);padding:44px 0}
+
 /* hero */
 .hero{position:relative;overflow:hidden;padding:40px 0 52px}
 .hero:before{content:"";position:absolute;inset:0;
@@ -185,7 +193,9 @@ section{padding:58px 0}
 .step p{font-size:15px;color:var(--grey);margin:0}
 
 /* reviews */
-.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.rev{display:flex;flex-direction:column}
+.rev p{flex:1}
 .rev{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:22px}
 .rev p{font-size:15.3px;font-style:italic;color:#4a434c}
 .rev .who{font-size:14px;font-weight:700;color:var(--plum);display:flex;align-items:center;gap:10px}
@@ -253,32 +263,9 @@ footer a{color:var(--champ)}
   </div>
 </div>
 
-<header class="hero">
-  <div class="wrap">
-    <div>
-      <span class="eyebrow">✦ Rouse Hill · limited spots this week</span>
-      <h1>Tell us the treatment you want, and <em>we'll call you back.</em></h1>
-      <p class="lede">Choose your treatment, leave your name and number, and we'll call within the hour to confirm a time that suits you.</p>
-
-      <ul class="ticks">
-        <li><svg width="21" height="21" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#efe6da"/><path d="M5.5 10.3l3 3 6-6.4" stroke="#8a6b32" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Treatment matched to your skin, no obligation to book</li>
-        <li><svg width="21" height="21" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#efe6da"/><path d="M5.5 10.3l3 3 6-6.4" stroke="#8a6b32" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Open Tuesday to Saturday, evening appointments available</li>
-        <li><svg width="21" height="21" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#efe6da"/><path d="M5.5 10.3l3 3 6-6.4" stroke="#8a6b32" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Qualified therapists, minutes from Rouse Hill Town Centre</li>
-      </ul>
-
-      <div style="display:flex;flex-wrap:wrap;gap:12px">
-        <a class="btn b1" href="#book" data-cta="hero-callback">Request Call Back →</a>
-        <a class="btn b2" href="tel:+61400972584" data-cta="hero-call">Or call now</a>
-      </div>
-
-      <div class="microtrust">
-        <span class="stars">★★★★★</span> 4.7 from 131 Google reviews
-        <span aria-hidden="true">·</span> Open Tue to Sat
-      </div>
-    </div>
-
-    <!-- BOOKING CARD -->
-    <div class="card" id="book">
+<main class="lp">
+  <div class="wrap narrow">
+<div class="card" id="book">
       <div class="cardtrust">
         <div><span class="stars">★★★★★</span> <b>4.7</b> from 131 Google reviews</div>
         <div class="hours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.3l3.4 2"/></svg> Open <b>Tue to Sat</b></div>
@@ -348,53 +335,11 @@ footer a{color:var(--champ)}
       </div>
     </div>
   </div>
-</header>
+</main>
 
-<div class="trust"><div class="wrap">
-  <div><b>4.7★</b><span>131 Google reviews</span></div>
-  <div><b>1 hour</b><span>call back, business hours</span></div>
-  <div><b>Tue to Sat</b><span>including Saturdays</span></div>
-  <div><b>Rouse Hill</b><span>easy parking</span></div>
-</div></div>
-
-
-<section>
+<section class="revsec">
   <div class="wrap">
-    <div class="center"><h2>MicroHydra-LIFT results</h2>
-      <p>Client photos from our Rouse Hill treatment room. Eyes covered for privacy.</p></div>
-
-    <div class="bagrid">
-      <figure class="ba"><img src="assets/ba1.jpg" width="332" height="345" loading="lazy"
-        alt="Client before and after a MicroHydra-LIFT facial, showing calmer, more even skin"></figure>
-      <figure class="ba"><img src="assets/ba3.jpg" width="332" height="342" loading="lazy"
-        alt="Client before and after a MicroHydra-LIFT facial, showing brighter, hydrated skin"></figure>
-      <figure class="ba"><img src="assets/ba4.jpg" width="332" height="340" loading="lazy"
-        alt="Client forehead and cheeks before and after a MicroHydra-LIFT facial, showing smoother texture"></figure>
-    </div>
-
-    <div class="baftr">
-      <p>Every treatment starts with a proper look at your skin, so the plan is built around what it actually needs.</p>
-      <a class="btn b3" href="#book" data-cta="results-book">Request Call Back →</a>
-    </div>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap">
-    <div class="center"><h2>Quick questions</h2></div>
-    <div class="faq">
-      <details open><summary>Do I have to pay anything to enquire?</summary><p>No. Leaving your details costs nothing and commits you to nothing. We call you back, answer your questions and confirm a time only if you want to go ahead.</p></details>
-      <details><summary>Do I need to know which treatment I want?</summary><p>No. Choose "Not Sure / Need Advice" and we'll talk it through on the call, then confirm at your appointment before anything starts.</p></details>
-      <details><summary>How soon will you call?</summary><p>Within one business hour during opening times. If you enquire after hours, you will hear from us when we next open.</p></details>
-      <details><summary>Where are you located?</summary><p>Rouse Hill, NSW, minutes from Rouse Hill Town Centre with easy parking. We're open Tuesday to Saturday.</p></details>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="center"><h2>What our clients say</h2><p>4.7 out of 5 across 131 Google reviews.</p></div>
-    <div class="revs">
+<div class="revs">
       <div class="rev">
         <div class="stars">★★★★★</div>
         <p>"Amazing experience! Everyone was warm and welcoming, I very much enjoyed!!"</p>
@@ -414,22 +359,9 @@ footer a{color:var(--champ)}
   </div>
 </section>
 
-
-<section class="final">
-  <div class="wrap">
-    <h2>Ready when you are</h2>
-    <p>Choose your treatment, leave your number, and we will call within the hour to confirm a time. No payment today.</p>
-    <p style="margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a class="btn b1" href="#book" data-cta="footer-callback">Request Call Back →</a>
-      <a class="btn bk-light" href="https://services.skinandbeautyathills.com.au/skinandbeautyathills-776/rousehill/home"
-         target="_blank" rel="noopener" data-cta="footer-book-online">Book online →</a>
-    </p>
-  </div>
-</section>
-
 <footer><div class="wrap">
-  <span>© 2026 Skin &amp; Beauty at Hills, Rouse Hill, NSW</span>
-  <span><a href="#book">Book</a> · <a href="tel:+61400972584">0400 972 584</a> ·
+  <span>&copy; 2026 Skin &amp; Beauty at Hills, Rouse Hill NSW</span>
+  <span><a href="tel:+61400972584">0400 972 584</a> &middot;
     <a href="https://skinandbeautyathills.com.au/policies/privacy-policy" target="_blank" rel="noopener">Privacy policy</a></span>
 </div></footer>
 
