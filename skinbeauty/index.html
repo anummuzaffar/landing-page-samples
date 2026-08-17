@@ -82,6 +82,30 @@ img,svg{max-width:100%;display:block}
 .offer .what{font-size:12.8px;color:#7c5b23;line-height:1.35}
 .offer .worth{margin-left:auto;background:var(--plum);color:var(--champ);font-size:11.5px;font-weight:700;
   padding:6px 11px;border-radius:99px;white-space:nowrap}
+/* reviews + hours, above the treatment picker */
+.cardtrust{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;
+  margin-bottom:16px;padding:10px 12px;border-radius:10px;background:#faf8f6;border:1px solid var(--line);
+  font-size:13.5px;color:var(--grey)}
+.cardtrust b{color:var(--plum)}
+.cardtrust .stars{font-size:14px;margin-right:3px}
+.cardtrust .hours{display:flex;align-items:center;gap:6px}
+.cardtrust .hours svg{width:15px;height:15px;color:var(--plum);opacity:.75}
+
+/* "already know what you want" — second path, straight to their booking system */
+.already{display:flex;align-items:center;gap:13px;margin-top:16px;padding:14px;border-radius:12px;
+  background:linear-gradient(120deg,#fbf7fa,#f7f1f5);border:1px solid #e8dfe6}
+.already .ico{flex:0 0 40px;width:40px;height:40px;border-radius:50%;background:var(--plum);
+  display:grid;place-items:center;color:var(--champ)}
+.already .ico svg{width:20px;height:20px}
+.already .txt{flex:1;line-height:1.35}
+.already .txt b{display:block;font-size:14.5px;color:var(--plum)}
+.already .txt span{font-size:13px;color:var(--grey)}
+.bk{background:var(--white);color:var(--plum);border:1.5px solid var(--plum);
+  padding:12px 18px;font-size:14.5px;white-space:nowrap}
+.bk:hover{background:var(--plum);color:var(--champ)}
+.bk-light{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+.bk-light:hover{background:#fff;color:var(--plum);border-color:#fff}
+
 .picklabel{font-size:13px;font-weight:700;color:var(--plum);margin-bottom:9px;letter-spacing:.02em}
 .picker{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:17px}
 .pick{position:relative}
@@ -205,7 +229,13 @@ footer a{color:var(--champ)}
   .sticky{display:flex}
   .topbar .loc,.topbar a.tel{display:none}
 }
-@media(max-width:560px){.row2{grid-template-columns:1fr}.picker{grid-template-columns:1fr}}
+@media(max-width:560px){
+  .row2{grid-template-columns:1fr}
+  .picker{grid-template-columns:1fr}
+  .already{flex-wrap:wrap}
+  .already .txt{flex:1 1 60%}
+  .already .bk{width:100%;margin-top:4px}
+}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 </head>
@@ -218,7 +248,7 @@ footer a{color:var(--champ)}
       <img src="assets/logo.png" width="46" height="46" alt="Skin &amp; Beauty at Hills logo">
       <div class="txt">Skin&amp;Beauty<small>AT HILLS</small></div>
     </div>
-    <span class="loc">Rouse Hill, NSW · Open 7 days</span>
+    <span class="loc">Rouse Hill, NSW · Open Tue to Sat</span>
     <a class="tel" href="tel:+61400972584" data-cta="header-call">📞 0400 972 584</a>
   </div>
 </div>
@@ -237,13 +267,13 @@ footer a{color:var(--champ)}
       </ul>
 
       <div style="display:flex;flex-wrap:wrap;gap:12px">
-        <a class="btn b1" href="#book" data-cta="hero-book">Claim my free skin analysis →</a>
+        <a class="btn b1" href="#book" data-cta="hero-callback">Request Call Back →</a>
         <a class="btn b2" href="tel:+61400972584" data-cta="hero-call">Or call now</a>
       </div>
 
       <div class="microtrust">
         <span class="stars">★★★★★</span> 4.7 from 131 Google reviews
-        <span aria-hidden="true">·</span> Open 7 days
+        <span aria-hidden="true">·</span> Open Tue to Sat
       </div>
     </div>
 
@@ -257,35 +287,37 @@ footer a{color:var(--champ)}
         <span class="worth">Worth $100</span>
       </div>
 
+      <div class="cardtrust">
+        <div><span class="stars">★★★★★</span> <b>4.7</b> from 131 Google reviews</div>
+        <div class="hours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.3l3.4 2"/></svg> Open <b>Tue to Sat</b></div>
+      </div>
+
       <h2>Which treatment are you interested in?</h2>
       <p class="sub">Tap one, then add your name and number. No payment today.</p>
 
       <form id="leadForm" novalidate>
         <div class="picklabel">1. Choose your treatment</div>
         <div class="picker">
-          <label class="pick"><input type="radio" name="service" value="Hydra Style Facial" checked>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3s6 5.4 6 9.6A6 6 0 016 12.6C6 8.4 12 3 12 3z"/></svg> Hydra Style Facial</span></label>
+          <label class="pick"><input type="radio" name="service" value="Hydra Lift Facial" checked>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3s6 5.4 6 9.6A6 6 0 016 12.6C6 8.4 12 3 12 3z"/></svg> Hydra Lift Facial</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Micro Needling">
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 20l6-6"/><path d="M9.5 13.5L18 5l1.8 1.8-8.5 8.5z"/><path d="M14 4.5l5.5 5.5"/></svg> Micro Needling</span></label>
 
-          <label class="pick"><input type="radio" name="service" value="HiFU Skin Tightening">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6.5 8.5a7 7 0 000 7"/><path d="M10 6a11 11 0 000 12"/><path d="M14 4.5a15 15 0 000 15"/><path d="M18.5 8.5a7 7 0 010 7"/></svg> HiFU Skin Tightening</span></label>
-
-          <label class="pick"><input type="radio" name="service" value="Lash Lift & Brow Lamination">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M2.8 13c3.4-5 15.4-5 18.4 0"/><circle cx="12" cy="12.6" r="2.6"/></svg> Lash Lift &amp; Brows</span></label>
-
-          <label class="pick"><input type="radio" name="service" value="Skin Analysis & Treatment Plan">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M15.6 15.6L21 21"/><path d="M8.6 11h4.8M11 8.6v4.8"/></svg> Skin Analysis &amp; Plan</span></label>
-
-          <label class="pick"><input type="radio" name="service" value="Aesthetics Consultation & Treatment">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 9c4-2.5 12-2.5 16 0"/><path d="M4 15c4-2.5 12-2.5 16 0"/></svg> Aesthetics Consult</span></label>
+          <label class="pick"><input type="radio" name="service" value="HiFU Skin Needling">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6.5 8.5a7 7 0 000 7"/><path d="M10 6a11 11 0 000 12"/><path d="M14 4.5a15 15 0 000 15"/><path d="M18.5 8.5a7 7 0 010 7"/></svg> HiFU Skin Needling</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Advanced Facial Treatments">
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.8M12 18.7v2.8M2.5 12h2.8M18.7 12h2.8M5.4 5.4l2 2M16.6 16.6l2 2M18.6 5.4l-2 2M7.4 16.6l-2 2"/></svg> Advanced Facials</span></label>
 
-          <label class="pick"><input type="radio" name="service" value="Not sure yet">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.4 9.3a2.7 2.7 0 015.2.9c0 1.8-2.6 2.2-2.6 3.9"/><path d="M12 17.4h.01"/></svg> Not sure yet</span></label>
+          <label class="pick"><input type="radio" name="service" value="Skin Analysis & Treatment Plan">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M15.6 15.6L21 21"/><path d="M8.6 11h4.8M11 8.6v4.8"/></svg> Skin Analysis &amp; Plan</span></label>
+
+          <label class="pick"><input type="radio" name="service" value="Aesthetics Nurse Consultation">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3.2l6.4 2.6v5.4c0 3.9-2.7 7.1-6.4 8-3.7-.9-6.4-4.1-6.4-8V5.8z"/><path d="M12 8.6v5.2M9.4 11.2h5.2"/></svg> Aesthetics Nurse</span></label>
+
+          <label class="pick"><input type="radio" name="service" value="Not sure / need advice">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.4 9.3a2.7 2.7 0 015.2.9c0 1.8-2.6 2.2-2.6 3.9"/><path d="M12 17.4h.01"/></svg> Not sure / advice</span></label>
         </div>
 
         <div class="picklabel">2. Your details</div>
@@ -296,19 +328,31 @@ footer a{color:var(--champ)}
         <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
         <div class="field"><label for="pref">Preferred time</label>
           <select id="pref" name="pref">
-            <option>Weekday morning</option><option>Weekday afternoon</option>
-            <option>Weekday evening</option><option>Saturday</option>
+            <option>Tuesday to Thursday, morning</option>
+            <option>Tuesday to Thursday, afternoon</option>
+            <option>Friday</option>
+            <option>Saturday</option>
           </select>
         </div>
 
         <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn b1" type="submit">Claim my free skin analysis →</button>
+        <button class="btn b1" type="submit">Request Call Back →</button>
         <p class="fineprint">No payment today · We call within 1 business hour · Your details stay private</p>
       </form>
 
       <div class="msg" id="thanks">
         <strong>Thank you. Your free skin analysis is reserved.</strong><br>
         We'll call you shortly to confirm a time for your <span id="svcEcho">appointment</span>.
+      </div>
+
+      <div class="already">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3.2" y="4.8" width="17.6" height="16" rx="2.6"/><path d="M8 2.8v4M16 2.8v4M3.2 9.8h17.6"/></svg></div>
+        <div class="txt">
+          <b>Already know what you want?</b>
+          <span>Book your treatment online in just a few clicks.</span>
+        </div>
+        <a class="btn bk" href="https://services.skinandbeautyathills.com.au/skinandbeautyathills-776/rousehill/home"
+           target="_blank" rel="noopener" data-cta="book-online-card">Book online →</a>
       </div>
     </div>
   </div>
@@ -317,7 +361,7 @@ footer a{color:var(--champ)}
 <div class="trust"><div class="wrap">
   <div><b>4.7★</b><span>131 Google reviews</span></div>
   <div><b>$100</b><span>skin analysis, free</span></div>
-  <div><b>7 days</b><span>a week</span></div>
+  <div><b>Tue to Sat</b><span>including Saturdays</span></div>
   <div><b>Rouse Hill</b><span>easy parking</span></div>
 </div></div>
 
@@ -391,11 +435,11 @@ footer a{color:var(--champ)}
       <p>Whatever you choose, it starts with the analysis, so you're never paying for a guess.</p></div>
     <div class="g3">
       <div class="tile"><i><svg viewBox="0 0 24 24"><path d="M12 3s6 5.4 6 9.6A6 6 0 016 12.6C6 8.4 12 3 12 3z"/></svg></i>
-        <h3>Hydra Style Facial</h3><p>Deep cleanse, gentle resurfacing and a hydration boost. Refreshed skin with no downtime.</p></div>
+        <h3>Hydra Lift Facial</h3><p>Deep cleanse, gentle resurfacing and a hydration boost. Refreshed skin with no downtime.</p></div>
       <div class="tile"><i><svg viewBox="0 0 24 24"><path d="M4 20l6-6"/><path d="M9.5 13.5L18 5l1.8 1.8-8.5 8.5z"/><path d="M14 4.5l5.5 5.5"/></svg></i>
         <h3>Micro Needling</h3><p>Stimulates your own collagen to soften scarring, texture and fine lines over a course of sessions.</p></div>
       <div class="tile"><i><svg viewBox="0 0 24 24"><path d="M6.5 8.5a7 7 0 000 7"/><path d="M10 6a11 11 0 000 12"/><path d="M14 4.5a15 15 0 000 15"/><path d="M18.5 8.5a7 7 0 010 7"/></svg></i>
-        <h3>HiFU Skin Tightening</h3><p>Focused ultrasound lifts and firms at depth. A non-surgical option for the jawline and cheeks.</p></div>
+        <h3>HiFU Skin Needling</h3><p>Focused ultrasound lifts and firms at depth. A non-surgical option for the jawline and cheeks.</p></div>
     </div>
   </div>
 </section>
@@ -425,7 +469,7 @@ footer a{color:var(--champ)}
   <div class="wrap">
     <div class="center"><h2>Booking takes 30 seconds</h2></div>
     <div class="steps">
-      <div class="step"><h3>Pick your treatment</h3><p>Tap the one you're interested in, or choose "not sure yet" and the analysis will tell us.</p></div>
+      <div class="step"><h3>Pick your treatment</h3><p>Tap the one you're interested in, or choose "not sure / need advice" and the analysis will tell us.</p></div>
       <div class="step"><h3>We call you back</h3><p>Within one business hour, to answer questions and find a time that works.</p></div>
       <div class="step"><h3>Scan, then plan</h3><p>AI imaging, therapist assessment and a written plan. No obligation to book treatment.</p></div>
     </div>
@@ -460,9 +504,9 @@ footer a{color:var(--champ)}
     <div class="center"><h2>Quick questions</h2></div>
     <div class="faq">
       <details open><summary>Is the skin analysis really free?</summary><p>Yes. AI skin imaging plus a qualified therapist's assessment, normally $100, at no cost and with no obligation to book any treatment afterwards. It's open to everyone, whether you've been to us before or not.</p></details>
-      <details><summary>Do I need to know which treatment I want?</summary><p>No. Choose "not sure yet" and the analysis is designed to answer exactly that, and we'll talk it through before anything is booked.</p></details>
+      <details><summary>Do I need to know which treatment I want?</summary><p>No. Choose "not sure / need advice" and the analysis is designed to answer exactly that, and we'll talk it through before anything is booked.</p></details>
       <details><summary>How long does the appointment take?</summary><p>Allow about 30 minutes for the imaging, the assessment and your treatment plan.</p></details>
-      <details><summary>Where are you located?</summary><p>Rouse Hill, NSW, minutes from Rouse Hill Town Centre with easy parking. We're open seven days.</p></details>
+      <details><summary>Where are you located?</summary><p>Rouse Hill, NSW, minutes from Rouse Hill Town Centre with easy parking. We're open Tuesday to Saturday.</p></details>
     </div>
   </div>
 </section>
@@ -471,7 +515,11 @@ footer a{color:var(--champ)}
   <div class="wrap">
     <h2>Your free skin analysis is waiting</h2>
     <p>AI imaging, an expert assessment and a written plan, worth $100, yours free. No payment today.</p>
-    <p style="margin-top:22px"><a class="btn b1" href="#book" data-cta="footer-book">Claim my free analysis →</a></p>
+    <p style="margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn b1" href="#book" data-cta="footer-callback">Request Call Back →</a>
+      <a class="btn bk-light" href="https://services.skinandbeautyathills.com.au/skinandbeautyathills-776/rousehill/home"
+         target="_blank" rel="noopener" data-cta="footer-book-online">Book online →</a>
+    </p>
   </div>
 </section>
 
@@ -481,8 +529,9 @@ footer a{color:var(--champ)}
 </div></footer>
 
 <div class="sticky">
-  <a class="btn b2" href="tel:+61400972584" data-cta="sticky-call">Call</a>
-  <a class="btn b1" href="#book" data-cta="sticky-book">Free analysis</a>
+  <a class="btn b1" href="#book" data-cta="sticky-callback">Request Call Back</a>
+  <a class="btn bk" href="https://services.skinandbeautyathills.com.au/skinandbeautyathills-776/rousehill/home"
+     target="_blank" rel="noopener" data-cta="sticky-book-online">Book Now</a>
 </div>
 
 <script type="application/ld+json">
@@ -510,7 +559,10 @@ footer a{color:var(--champ)}
     dl.push({event:'cta_click', cta_location:el.getAttribute('data-cta')});
     if((el.getAttribute('href')||'').indexOf('tel:') === 0){
       dl.push({event:'phone_call_click'});
-      // gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/CallLabel'});
+    }
+    // sends visitors straight to the clinic's booking system: worth measuring separately
+    if(el.getAttribute('data-cta').indexOf('book-online') > -1){
+      dl.push({event:'book_online_click', cta_location:el.getAttribute('data-cta')});
     }
   });
 
@@ -532,7 +584,7 @@ footer a{color:var(--champ)}
   function done(service){
     dl.push({event:'generate_lead', form_name:'free_skin_analysis', service:service, value:100, currency:'AUD'});
     // gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/FormLabel','value':100,'currency':'AUD'});
-    echo.textContent = service === 'Not sure yet' ? 'appointment' : service;
+    echo.textContent = service.indexOf('Not sure') === 0 ? 'appointment' : service;
     form.style.display = 'none';
     thanks.classList.add('on');
     thanks.scrollIntoView({block:'center'});
