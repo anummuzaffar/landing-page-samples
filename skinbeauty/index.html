@@ -325,7 +325,6 @@ footer a{color:var(--champ)}
           <div class="field"><label for="fname">First name</label><input id="fname" name="fname" type="text" autocomplete="given-name" required></div>
           <div class="field"><label for="phone">Mobile</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
         </div>
-        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
         <div class="field"><label for="pref">Preferred time</label>
           <select id="pref" name="pref">
             <option>Tue to Fri, morning</option>
@@ -508,11 +507,9 @@ footer a{color:var(--champ)}
     if(form.company.value) return;                     // honeypot
 
     var ok = true;
-    ['fname','phone','email'].forEach(function(n){
-      var f = form[n], v = f.value.trim(), good;
-      good = n === 'email' ? /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v)
-           : n === 'phone' ? v.replace(/\D/g,'').length >= 8
-           : v.length >= 2;
+    ['fname','phone'].forEach(function(n){
+      var f = form[n], v = f.value.trim();
+      var good = n === 'phone' ? v.replace(/\D/g,'').length >= 8 : v.length >= 2;
       f.classList.toggle('err', !good);
       if(!good) ok = false;
     });
@@ -523,7 +520,6 @@ footer a{color:var(--champ)}
       service: service,
       first_name: form.fname.value.trim(),
       mobile: form.phone.value.trim(),
-      email: form.email.value.trim(),
       preferred_time: form.pref.value,
       page: location.href,
       source: document.referrer || 'direct'
