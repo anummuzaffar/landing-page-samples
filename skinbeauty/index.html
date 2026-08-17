@@ -142,8 +142,14 @@ input:focus,select:focus{outline:0;border-color:var(--plum);box-shadow:0 0 0 3px
 .card .b1{width:100%;padding:17px;font-size:17.5px}
 .fineprint{font-size:12.5px;color:#8f8a92;text-align:center;margin:11px 0 0;line-height:1.45}
 .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
-.msg{display:none;background:#eef7f1;border:1px solid #bfe0cd;color:#1f5d43;border-radius:11px;padding:18px;text-align:center}
+.msg{display:none;background:#eef7f1;border:1px solid #bfe0cd;color:#1f5d43;border-radius:11px;padding:22px 20px;text-align:center}
 .msg.on{display:block}
+.msg strong{display:block;font-size:18px;margin-bottom:8px}
+.msg p{margin:0 0 8px;font-size:15.5px}
+.msg .urgent{margin:0;font-size:15px}
+.msg .urgent a{color:#1f5d43;font-weight:700;white-space:nowrap}
+/* after a successful submit the card shows the confirmation only */
+.card.sent .cardtrust,.card.sent h2,.card.sent .sub,.card.sent .already{display:none}
 
 /* sections */
 section{padding:58px 0}
@@ -237,7 +243,9 @@ footer a{color:var(--champ)}
   section{padding:44px 0}
   body{padding-bottom:74px}
   .sticky{display:flex}
-  .topbar .loc,.topbar a.tel{display:none}
+  .topbar .wrap{flex-wrap:wrap;justify-content:center;gap:6px}
+  .topbar .loc{width:100%;text-align:center;font-size:12.5px;order:3}
+  .topbar a.tel{display:none}
 }
 @media(max-width:560px){
   .row2{grid-template-columns:1fr}
@@ -272,7 +280,7 @@ footer a{color:var(--champ)}
       </div>
 
       <h2>Which treatment are you interested in?</h2>
-      <p class="sub">Tap one, then add your name and number. No payment today.</p>
+      <p class="sub">Tap one, then add your name and number.</p>
 
       <form id="leadForm" novalidate>
         <div class="picklabel">1. Choose your treatment</div>
@@ -319,12 +327,13 @@ footer a{color:var(--champ)}
 
         <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn b1" type="submit">Request Call Back →</button>
-        <p class="fineprint">No payment today · We call within 1 business hour · Your details stay private</p>
+        <p class="fineprint">Your details stay private</p>
       </form>
 
       <div class="msg" id="thanks">
-        <strong>Thank you. We have your request.</strong><br>
-        We'll call you shortly to confirm a time for your <span id="svcEcho">appointment</span>.
+        <strong>Thank you. We have your request.</strong>
+        <p>We will call you back during the time you indicated.</p>
+        <p class="urgent">If urgent, please call us on <a href="tel:+61400972584" data-cta="thanks-call">0400 972 584</a></p>
       </div>
 
       <div class="already">
@@ -390,7 +399,7 @@ footer a{color:var(--champ)}
   var dl = window.dataLayer = window.dataLayer || [];
   var form = document.getElementById('leadForm'),
       thanks = document.getElementById('thanks'),
-      echo = document.getElementById('svcEcho'),
+      card = document.getElementById('book'),
       btn = form.querySelector('button[type=submit]'),
       started = false;
 
@@ -424,10 +433,10 @@ footer a{color:var(--champ)}
   function done(service){
     dl.push({event:'generate_lead', form_name:'treatment_enquiry', service:service, currency:'AUD'});
     // gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/FormLabel','value':100,'currency':'AUD'});
-    echo.textContent = service.indexOf('Not Sure') === 0 ? 'appointment' : service;
     form.style.display = 'none';
+    card.classList.add('sent');          // hides the heading, the trust strip and the booking panel
     thanks.classList.add('on');
-    thanks.scrollIntoView({block:'center'});
+    card.scrollIntoView({block:'center'});
   }
 
   form.addEventListener('submit', function(e){
