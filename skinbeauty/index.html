@@ -230,10 +230,7 @@ footer{background:#2b2230;color:#b2a6b0;font-size:14px;padding:24px 0}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
 footer a{color:var(--champ)}
 
-/* sticky mobile bar */
-.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;padding:10px 12px;
-  background:rgba(255,255,255,.97);border-top:1px solid var(--line);box-shadow:0 -8px 22px rgba(0,0,0,.09)}
-.sticky .btn{flex:1;padding:15px 8px;font-size:16px}
+
 
 @media(max-width:900px){
   .hero .wrap,.aiwrap{grid-template-columns:1fr;gap:28px}
@@ -241,8 +238,6 @@ footer a{color:var(--champ)}
   .g3,.revs,.steps{grid-template-columns:1fr}
   .trust .wrap{grid-template-columns:1fr 1fr}
   section{padding:44px 0}
-  body{padding-bottom:74px}
-  .sticky{display:flex}
   .topbar .wrap{flex-wrap:wrap;justify-content:center;gap:6px}
   .topbar .loc{width:100%;text-align:center;font-size:12.5px;order:3}
   .topbar a.tel{display:none}
@@ -255,6 +250,12 @@ footer a{color:var(--champ)}
   .already .bk{width:100%;margin-top:4px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+
+/* The store's floating contact-form widget is injected site-wide by an app.
+   It pulls people off this page, so it stays hidden here only. */
+[id*="qikify"],[class*="qikify"],
+[id*="contactform"],[class*="contactform"],
+[id*="contact-form-widget"],[class*="contact-form-widget"]{display:none!important}
 </style>
 </head>
 <body>
@@ -376,12 +377,6 @@ footer a{color:var(--champ)}
   <span><a href="tel:+61400972584">0400 972 584</a> &middot;
     <a href="https://skinandbeautyathills.com.au/policies/privacy-policy" target="_blank" rel="noopener">Privacy policy</a></span>
 </div></footer>
-
-<div class="sticky">
-  <a class="btn b1" href="#book" data-cta="sticky-callback">Request Call Back</a>
-  <a class="btn bk" href="https://services.skinandbeautyathills.com.au/skinandbeautyathills-776/rousehill/home"
-     target="_blank" rel="noopener" data-cta="sticky-book-online">Book Now</a>
-</div>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BeautySalon","name":"Skin & Beauty at Hills",
