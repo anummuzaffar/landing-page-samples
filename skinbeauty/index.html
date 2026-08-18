@@ -460,11 +460,18 @@ footer a{color:var(--champ)}
     if(!LEAD_ENDPOINT){ done(service); return; }       // preview mode
 
     btn.disabled = true; btn.textContent = 'Sending...';
+
+    // Show the confirmation once the lead is away, but never leave someone
+    // staring at "Sending..." if the network is slow: 6 seconds is the ceiling.
+    var finished = false;
+    function finish(){ if(finished) return; finished = true; done(service); }
+    setTimeout(finish, 6000);
+
     fetch(LEAD_ENDPOINT, {
       method:'POST', mode:'no-cors',
       headers:{'Content-Type':'text/plain;charset=utf-8'},
       body: JSON.stringify(payload)
-    }).catch(function(){}).then(function(){ done(service); });
+    }).catch(function(){}).then(finish);
   });
 })();
 </script>
