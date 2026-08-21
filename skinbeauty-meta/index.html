@@ -121,25 +121,26 @@ img,svg{max-width:100%;display:block}
 .bk-light{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
 .bk-light:hover{background:#fff;color:var(--plum);border-color:#fff}
 
-.picklabel{font-size:13px;font-weight:700;color:var(--plum);margin-bottom:10px;letter-spacing:.02em;
-  display:flex;align-items:flex-start;gap:8px}
-.picklabel i{flex:0 0 21px;display:grid;place-items:center;width:21px;height:21px;border-radius:50%;
-  background:var(--plum);color:var(--champ);font-size:11.5px;font-style:normal;font-weight:700;margin-top:1px}
-.picklabel small{display:block;font-size:12.5px;font-weight:400;color:var(--grey);letter-spacing:0;margin-top:2px}
-/* concern picker: icon above the words. Flex-wrap centred so the last row never looks orphaned. */
-.picker{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-bottom:18px}
-.pick{position:relative;flex:1 1 calc(33.333% - 6px);max-width:calc(33.333% - 6px)}
+.picklabel{font-size:13.5px;font-weight:700;color:var(--plum);margin-bottom:9px;letter-spacing:.02em;
+  display:flex;align-items:flex-start;gap:9px}
+.picklabel i{flex:0 0 22px;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;
+  background:var(--plum);color:var(--champ);font-size:11.5px;font-style:normal;font-weight:700}
+.picklabel small{display:block;font-size:12px;font-weight:400;color:var(--grey);letter-spacing:0;margin-top:3px}
+/* concern picker: icon above the words, four across and tight, as in the reference.
+   Flex-wrap centred so the last row never looks orphaned. */
+.picker{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-bottom:16px}
+.pick{position:relative;flex:1 1 calc(25% - 5.25px);max-width:calc(25% - 5.25px)}
 .pick input{position:absolute;opacity:0;pointer-events:none}
-.pick span{display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;min-height:98px;
-  padding:14px 8px 12px;border:1.5px solid #e2dcd7;border-radius:12px;font-size:13px;font-weight:600;
-  line-height:1.28;text-align:center;cursor:pointer;background:#fcfbfa;transition:.15s}
-.pick span svg{width:28px;height:28px;flex:0 0 28px;color:var(--plum);opacity:.7;stroke-width:1.6}
+.pick span{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;height:100%;
+  min-height:74px;padding:9px 5px;border:1px solid #e6e0da;border-radius:9px;font-size:11.5px;font-weight:600;
+  line-height:1.24;text-align:center;cursor:pointer;background:#fdfcfb;color:#4b4149;transition:.15s}
+.pick span svg{width:24px;height:24px;flex:0 0 24px;color:var(--plum);opacity:.85;stroke-width:1.25}
 .pick span:hover{border-color:var(--taupe);background:#fff}
-.pick input:checked+span{border-color:var(--plum);background:var(--champ-soft);box-shadow:0 0 0 3px rgba(75,60,78,.09)}
+.pick input:checked+span{border-color:var(--plum);background:var(--champ-soft);box-shadow:0 0 0 2px rgba(75,60,78,.1)}
 .pick input:checked+span svg{opacity:1}
 .pick input:focus-visible+span{outline:2px solid var(--plum);outline-offset:2px}
 .picker.err .pick span{border-color:#e2b4ac;background:#fff7f6}
-.pickerr{display:none;font-size:13px;color:#c0392b;margin:-10px 0 14px}
+.pickerr{display:none;font-size:12.5px;color:#c0392b;margin:-8px 0 12px}
 .pickerr.on{display:block}
 .field{margin-bottom:12px}
 label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;color:#4b4149}
@@ -261,7 +262,7 @@ footer a{color:var(--champ)}
 }
 @media(max-width:560px){
   .row2{grid-template-columns:1fr}
-  .pick{flex:1 1 calc(50% - 5px);max-width:calc(50% - 5px)}
+  .pick{flex:1 1 calc(50% - 4px);max-width:calc(50% - 4px)}
   .already{flex-wrap:wrap}
   .already .txt{flex:1 1 60%}
   .already .bk{width:100%;margin-top:4px}
@@ -273,6 +274,63 @@ footer a{color:var(--champ)}
 [id*="qikify"],[class*="qikify"],
 [id*="contactform"],[class*="contactform"],
 [id*="contact-form-widget"],[class*="contact-form-widget"]{display:none!important}
+/* ===== Meta card: laid out to match the client's reference ===== */
+.card{padding:26px 24px 22px}
+.lead-head{text-align:center;margin-bottom:18px}
+.orn{display:block;margin:0 auto 12px;width:38px;height:31px;color:#c9a86f}
+.kicker{display:block;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:#a8843f;margin-bottom:11px}
+.kicker:before,.kicker:after{content:"";display:inline-block;width:24px;height:1px;
+  background:rgba(168,132,63,.45);vertical-align:4px;margin:0 10px}
+.card h2{font-size:clamp(25px,3.6vw,32px);line-height:1.16;margin:0 auto 10px;max-width:24ch}
+.lead-head .sub{font-size:15px;color:var(--grey);margin:0 auto;max-width:45ch}
+.ticks3{display:flex;flex-wrap:wrap;justify-content:center;gap:9px 18px;margin:15px 0 0;
+  font-size:12.6px;color:#4b4149}
+.ticks3 span{display:inline-flex;align-items:center;gap:7px}
+.ticks3 svg{width:16px;height:16px;flex:0 0 16px;color:var(--plum)}
+/* inputs with a leading icon */
+.ifield{position:relative}
+.ifield svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;
+  color:var(--taupe);stroke-width:1.5;pointer-events:none}
+.ifield input{padding-left:38px}
+input::placeholder{color:#b8b0b6}
+/* how the caller would rather be contacted */
+.prefq{font-size:12.5px;color:var(--grey);margin:4px 0 8px}
+.prefrow{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.prefrow .pick{flex:1 1 calc(33.333% - 5.4px);max-width:none}
+.prefrow .pick span{flex-direction:row;min-height:0;padding:11px 8px;font-size:12.6px;gap:8px;border-radius:10px}
+.prefrow .pick span svg{width:16px;height:16px;flex:0 0 16px}
+/* primary call to action */
+.b4{width:100%;background:linear-gradient(180deg,#54445a,var(--plum-d));color:var(--champ);
+  padding:17px 20px;font-size:15px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  box-shadow:0 12px 26px rgba(58,45,60,.3)}
+.b4:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.secure{display:flex;align-items:center;justify-content:center;gap:7px;font-size:12px;color:#8f8a92;margin:11px 0 0}
+.secure svg{width:12px;height:12px;flex:0 0 12px;stroke-width:1.7}
+/* three reasons to trust the clinic, under the button */
+.trust3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;padding-top:18px;
+  border-top:1px solid var(--line);text-align:center}
+.trust3 > div{padding:0 6px}
+.trust3 > div + div{border-left:1px solid var(--line)}
+.trust3 .stars{display:block;font-size:12.5px;margin-bottom:3px}
+.trust3 b{font-family:"Playfair Display",Georgia,serif;font-size:19px;color:var(--plum);line-height:1.1}
+.trust3 em{display:block;font-style:normal;font-size:12.2px;font-weight:700;color:#4b4149;margin-top:3px}
+.trust3 span{display:block;font-size:11.2px;color:var(--grey);line-height:1.35;margin-top:2px}
+.trust3 svg{width:17px;height:17px;color:var(--plum);opacity:.8;margin:0 auto 5px;display:block;stroke-width:1.4}
+/* the confirmation replaces the whole card, so the new blocks hide with the rest */
+.card.sent .lead-head,.card.sent .trust3{display:none}
+/* location line in the top bar */
+.topbar .loc{display:inline-flex;align-items:center;gap:8px;text-align:left}
+.topbar .loc svg{width:16px;height:16px;flex:0 0 16px;color:var(--champ);stroke-width:1.5}
+.topbar .loc small{display:block;font-size:10.5px;opacity:.72;font-style:italic}
+.topbar a.tel{display:inline-flex;align-items:center;gap:8px}
+.topbar a.tel svg{width:15px;height:15px;flex:0 0 15px;color:var(--champ);stroke-width:1.6}
+@media(max-width:560px){
+  .prefrow .pick span{flex-direction:column;gap:5px;padding:10px 5px;font-size:11.4px}
+  .trust3{grid-template-columns:1fr;gap:0}
+  .trust3 > div + div{border-left:0;border-top:1px solid var(--line);margin-top:13px;padding-top:13px}
+  .card{padding:22px 18px 20px}
+}
 </style>
 </head>
 <body>
@@ -282,66 +340,76 @@ footer a{color:var(--champ)}
       <img src="assets/logo.png" width="46" height="46" alt="Skin &amp; Beauty at Hills logo">
       <div class="txt">Skin&amp;Beauty<small>AT HILLS</small></div>
     </div>
-    <span class="loc">Rouse Hill, NSW &middot; Open Tue to Sat</span>
-    <a class="tel" href="tel:+61400972584" data-cta="header-call">&#128222; 0400 972 584</a>
+    <span class="loc">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10.4c0 5.6-8 12-8 12s-8-6.4-8-12a8 8 0 1116 0z"/><circle cx="12" cy="10.4" r="2.8"/></svg>
+      <span>Rouse Hill NSW<small>Minutes from Rouse Hill Town Centre</small></span>
+    </span>
+    <a class="tel" href="tel:+61400972584" data-cta="header-call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 3.8h3.1l1.6 3.9-2 1.2a11 11 0 005.2 5.2l1.2-2 3.9 1.6v3.1a1.6 1.6 0 01-1.7 1.6A15.6 15.6 0 014.6 5.5 1.6 1.6 0 016.2 3.8z"/></svg>
+      0400 972 584</a>
   </div>
 </div>
 
 <main class="lp">
   <div class="wrap narrow">
     <div class="card" id="book">
-      <div class="cardtrust">
-        <div><span class="stars">★★★★★</span> <b>4.7</b> from 131 Google reviews</div>
-        <div class="hours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.3l3.4 2"/></svg> Open <b>Tue to Sat</b></div>
-      </div>
 
-      <h2>Not sure which treatment is right for you?</h2>
-      <p class="sub">Tell us what you would like to improve and we will help you find the right treatment for your skin.</p>
+      <div class="lead-head">
+        <svg class="orn" viewBox="0 0 32 26" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M16 2.8c2.3 2.7 2.3 6.9 0 9.6-2.3-2.7-2.3-6.9 0-9.6z"/><path d="M15.4 12.6c-3.1-1.3-7-.2-8.8 2.5 3.1 1.3 7 .2 8.8-2.5z"/><path d="M16.6 12.6c3.1-1.3 7-.2 8.8 2.5-3.1 1.3-7 .2-8.8-2.5z"/><path d="M9 18.4c1.8 2.2 4.3 3.4 7 3.4s5.2-1.2 7-3.4"/></svg>
+        <span class="kicker">Personalised skin &amp; beauty treatments in Rouse Hill</span>
+        <h2>Not sure which treatment is right for you?</h2>
+        <p class="sub">Tell us what you would like to improve and we will help you find the right treatment for your skin.</p>
+        <div class="ticks3">
+          <span><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M7.6 12.4l3 3 5.8-6.4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Personalised advice</span>
+          <span><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M7.6 12.4l3 3 5.8-6.4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> No obligation</span>
+          <span><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M7.6 12.4l3 3 5.8-6.4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Local Rouse Hill clinic</span>
+        </div>
+      </div>
 
       <form id="leadForm" novalidate>
         <div class="picklabel"><i>1</i><span>What would you like help with?
-          <small>Choose the one that best describes your main skin concern.</small></span></div>
+          <small>Choose the option that best describes your main skin concern.</small></span></div>
 
         <div class="picker" id="picker">
 
           <label class="pick"><input type="radio" name="service" value="Acne &amp; Congestion">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><circle cx="9.3" cy="9.6" r="1.7"/><circle cx="9.3" cy="9.6" r=".5" fill="currentColor" stroke="none"/><circle cx="14.9" cy="13.6" r="2"/><circle cx="14.9" cy="13.6" r=".55" fill="currentColor" stroke="none"/><circle cx="10.1" cy="15.5" r="1.1"/></svg>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="9.6" cy="10" r="1.3"/><circle cx="14.4" cy="13.4" r="1.6"/><circle cx="10.6" cy="15.2" r=".8"/></svg>
             Acne &amp; Congestion</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Pigmentation &amp; Uneven Skin Tone">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M8.3 8.1c2.4-1.4 4.7.4 4.3 2.3-.4 2-3.2 3-4.8 1.8-1.4-1.1-1-3.2.5-4.1z" fill="currentColor" fill-opacity=".24" stroke="none"/><path d="M14.3 13.1c1.7-.6 3.1.8 2.6 2.3-.5 1.5-2.7 2-3.7.8-.8-1-.2-2.6 1.1-3.1z" fill="currentColor" fill-opacity=".24" stroke="none"/></svg>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8" stroke-dasharray="1.6 2.6"/><circle cx="10.4" cy="10.6" r="2" fill="currentColor" fill-opacity=".16" stroke="none"/><circle cx="14.3" cy="13.9" r="1.35" fill="currentColor" fill-opacity=".16" stroke="none"/></svg>
             Pigmentation &amp; Uneven Tone</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Fine Lines &amp; Ageing Skin">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.4c2-2.4 6 2.4 8 0s6-2.4 8 0"/><path d="M4 12c2-2.4 6 2.4 8 0s6-2.4 8 0"/><path d="M4 16.6c2-2.4 6 2.4 8 0s6-2.4 8 0"/></svg>
-            Fine Lines &amp; Ageing Skin</span></label>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 8.6c1.85-2.2 5.55 2.2 7.4 0s5.55-2.2 7.4 0"/><path d="M4.6 12c1.85-2.2 5.55 2.2 7.4 0s5.55-2.2 7.4 0"/><path d="M4.6 15.4c1.85-2.2 5.55 2.2 7.4 0s5.55-2.2 7.4 0"/></svg>
+            Fine Lines &amp; Skin Ageing</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Glow &amp; Hydration">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11.2 4.4s5.2 4.7 5.2 8.4a5.2 5.2 0 11-10.4 0c0-3.7 5.2-8.4 5.2-8.4z"/><path d="M19 3.2l.65 1.6 1.6.65-1.6.65-.65 1.6-.65-1.6-1.6-.65 1.6-.65z"/></svg>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.4l1.5 3.7 3.7 1.5-3.7 1.5-1.5 3.7-1.5-3.7-3.7-1.5 3.7-1.5z"/><path d="M17.5 13.4l.75 1.85 1.85.75-1.85.75-.75 1.85-.75-1.85-1.85-.75 1.85-.75z"/><path d="M7 16.7l.5 1.25 1.25.5-1.25.5-.5 1.25-.5-1.25-1.25-.5 1.25-.5z"/></svg>
             Glow &amp; Hydration</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Redness &amp; Sensitive Skin">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.2c3.2 0 5.6-2.2 5.6-5.3 0-3.6-3.4-5.2-3-9.1-2.2.7-3.4 2.6-3.4 4.6 0 1-.8 1.4-1.3.8-.7-.8-1-1.9-.9-3-1.6 1.4-2.6 3.6-2.6 6.7 0 3.1 2.4 5.3 5.6 5.3z"/><path d="M12 17.9c1.1 0 1.9-.8 1.9-1.8 0-1.2-1.2-1.8-1.5-3-1 .7-1.6 1.8-1.6 3 0 1 .5 1.8 1.2 1.8z"/></svg>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.6c2.9 0 5-2 5-4.8 0-3.3-3-4.7-2.7-8.2-2 .6-3.1 2.3-3.1 4.1 0 .9-.7 1.3-1.2.7-.6-.7-.9-1.7-.8-2.7-1.4 1.3-2.3 3.2-2.3 6.1 0 2.8 2.2 4.8 5.1 4.8z"/><path d="M12 17.7c.9 0 1.6-.6 1.6-1.5 0-1-1-1.5-1.3-2.5-.8.6-1.3 1.5-1.3 2.5 0 .9.4 1.5 1 1.5z"/></svg>
             Redness &amp; Sensitive Skin</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Skin Texture &amp; Scarring">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="4.6"/><path d="M7.8 15.4l3.2-3.2M12 16.9l4.2-4.2M9.6 10.2l2.4-2.4M15 10.6l1.8-1.8"/></svg>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="4.2" width="15.6" height="15.6" rx="4.4"/><path d="M8.2 14.6l3-3M11.6 16.2l3.8-3.8M9.4 9.6l2.2-2.2"/></svg>
             Skin Texture &amp; Scarring</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Forehead Lines">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.4c3.9 0 6.5 2.9 6.5 7 0 5.3-3.1 10.2-6.5 10.2S5.5 15.7 5.5 10.4c0-4.1 2.6-7 6.5-7z"/><path d="M9 7.4h6M8.4 10.9h7.2"/><path d="M9.8 14.6h.01M14.2 14.6h.01"/></svg>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6c3.9 0 6.6 2.9 6.6 6.8 0 5.2-3 9.8-6.6 9.8s-6.6-4.6-6.6-9.8c0-3.9 2.7-6.8 6.6-6.8z"/><path d="M9.6 7.2h4.8M8.8 11.4h6.4"/><path d="M10.1 15.2h.01M13.9 15.2h.01"/></svg>
             Forehead Lines</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Facial Volume Loss">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.4c3.9 0 6.5 2.9 6.5 7 0 5.3-3.1 10.2-6.5 10.2S5.5 15.7 5.5 10.4c0-4.1 2.6-7 6.5-7z"/><path d="M9.8 9.6h.01M14.2 9.6h.01"/><path d="M8.8 13.2l1.7 1.5-1.7 1.5"/><path d="M15.2 13.2l-1.7 1.5 1.7 1.5"/></svg>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.8c3.6 0 6 2.7 6 6.5 0 5-2.9 9.6-6 9.6s-6-4.6-6-9.6c0-3.8 2.4-6.5 6-6.5z"/><path d="M10 9.6h.01M14 9.6h.01"/><path d="M8.5 13.2l1.6 1.5-1.6 1.5"/><path d="M15.5 13.2l-1.6 1.5 1.6 1.5"/></svg>
             Facial Volume Loss</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Skin Laxity">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 14.8L12 9.2l5.6 5.6"/><path d="M6.4 20.2L12 14.6l5.6 5.6"/></svg>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 14.2L12 8.8l5.4 5.4"/><path d="M6.6 19L12 13.6l5.4 5.4"/></svg>
             Skin Laxity</span></label>
 
           <label class="pick"><input type="radio" name="service" value="Not Sure / I Need Advice">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.4 9.3a2.7 2.7 0 015.2.9c0 1.8-2.6 2.2-2.6 3.9"/><path d="M12 17.4h.01"/></svg>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><path d="M9.7 9.6a2.4 2.4 0 014.6.8c0 1.6-2.3 2-2.3 3.5"/><path d="M12 17h.01"/></svg>
             Not Sure &ndash; I Need Advice</span></label>
 
         </div>
@@ -349,28 +417,58 @@ footer a{color:var(--champ)}
 
         <div class="picklabel"><i>2</i><span>Your details</span></div>
         <div class="row2">
-          <div class="field"><label for="fname">First name</label><input id="fname" name="fname" type="text" autocomplete="given-name" required></div>
-          <div class="field"><label for="phone">Mobile</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="fname">First name</label>
+            <div class="ifield">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.4" r="3.4"/><path d="M5.2 19.4a6.8 6.8 0 0113.6 0"/></svg>
+              <input id="fname" name="fname" type="text" placeholder="e.g. Sarah" autocomplete="given-name" required>
+            </div>
+          </div>
+          <div class="field"><label for="phone">Mobile number</label>
+            <div class="ifield">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 3.8h3.1l1.6 3.9-2 1.2a11 11 0 005.2 5.2l1.2-2 3.9 1.6v3.1a1.6 1.6 0 01-1.7 1.6A15.6 15.6 0 014.6 5.5 1.6 1.6 0 016.2 3.8z"/></svg>
+              <input id="phone" name="phone" type="tel" placeholder="e.g. 0412 345 678" inputmode="tel" autocomplete="tel" required>
+            </div>
+          </div>
         </div>
-        <div class="field"><label for="pref">Preferred time</label>
-          <select id="pref" name="pref">
-            <option>Tue to Fri, morning</option>
-            <option>Tue to Fri, afternoon</option>
-            <option>Tue to Fri, evening</option>
-            <option>Saturday</option>
-            <option>Whenever is soonest</option>
-          </select>
+
+        <p class="prefq">How would you prefer we contact you?</p>
+        <div class="prefrow">
+          <label class="pick"><input type="radio" name="pref" value="Call me" checked>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 3.8h3.1l1.6 3.9-2 1.2a11 11 0 005.2 5.2l1.2-2 3.9 1.6v3.1a1.6 1.6 0 01-1.7 1.6A15.6 15.6 0 014.6 5.5 1.6 1.6 0 016.2 3.8z"/></svg> Call me</span></label>
+          <label class="pick"><input type="radio" name="pref" value="Text me">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 12.4a7 7 0 01-7.5 7 8 8 0 01-3.2-.7L4.4 20.4l1.7-5a8 8 0 01-.7-3.2 7 7 0 017-7.5 7 7 0 017.8 7.7z"/></svg> Text me</span></label>
+          <label class="pick"><input type="radio" name="pref" value="Either is fine">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="5.6" width="17.2" height="12.8" rx="2.4"/><path d="M3.9 7.2l8.1 5.6 8.1-5.6"/></svg> Either is fine</span></label>
         </div>
 
         <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn b1" type="submit">Request Call Back &rarr;</button>
-        <p class="fineprint">Your details stay private</p>
+        <button class="btn b4" type="submit">Find my right treatment &rarr;</button>
+        <p class="secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="5.4" y="10.6" width="13.2" height="9.4" rx="2.2"/><path d="M8.6 10.6V8.2a3.4 3.4 0 016.8 0v2.4"/></svg> No payment required &middot; No obligation</p>
       </form>
 
       <div class="msg" id="thanks">
         <strong>Thank you. We have your request.</strong>
-        <p>We will call you back during the time you indicated.</p>
+        <p>We will be in touch the way you asked, as soon as we can.</p>
         <p class="urgent">If urgent, please call us on <a href="tel:+61400972584" data-cta="thanks-call">0400 972 584</a></p>
+      </div>
+
+      <div class="trust3">
+        <div>
+          <span class="stars">★★★★★</span>
+          <b>4.7</b>
+          <em>Google Rating</em>
+          <span>Trusted by 100+ local clients</span>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15.6 19.4v-1.6a3.2 3.2 0 00-3.2-3.2H6.8a3.2 3.2 0 00-3.2 3.2v1.6"/><circle cx="9.6" cy="8.2" r="3.2"/><path d="M20.4 19.4v-1.6a3.2 3.2 0 00-2.4-3.1M15.6 5.2a3.2 3.2 0 010 6.2"/></svg>
+          <em>Experienced Therapists</em>
+          <span>Tailored treatments, better results</span>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10.4c0 5.6-8 12-8 12s-8-6.4-8-12a8 8 0 1116 0z"/><circle cx="12" cy="10.4" r="2.8"/></svg>
+          <em>Rouse Hill</em>
+          <span>Hills District &middot; Convenient parking</span>
+        </div>
       </div>
 
       <div class="already">
@@ -383,6 +481,8 @@ footer a{color:var(--champ)}
            target="_blank" rel="noopener" data-cta="book-online-card">Book online &rarr;</a>
       </div>
     </div>
+
+    <p class="fineprint">Your information is secure and will never be shared.</p>
   </div>
 </main>
 
@@ -478,7 +578,7 @@ footer a{color:var(--champ)}
     dl.push({event:'generate_lead', form_name:'skin_concern_enquiry', service:service, currency:'AUD'});
     fb('track','Lead',{content_name:'Skin concern enquiry', content_category:service, currency:'AUD'});
     form.style.display = 'none';
-    card.classList.add('sent');          // hides the heading, the trust strip and the booking panel
+    card.classList.add('sent');          // hides the heading, the trust row and the booking panel
     thanks.classList.add('on');
     card.scrollIntoView({block:'center'});
   }
@@ -520,7 +620,8 @@ footer a{color:var(--champ)}
       service: service,
       first_name: form.fname.value.trim(),
       mobile: form.phone.value.trim(),
-      preferred_time: form.pref.value,
+      // the sheet's "Preferred time" column now carries how they want to be reached
+      preferred_time: 'Prefers: ' + form.pref.value,
       page: location.href,
       source: 'Meta Ads - ' + (document.referrer || 'direct')
     };
