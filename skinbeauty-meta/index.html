@@ -321,6 +321,10 @@ input::placeholder{color:#b8b0b6}
 .card.sent .lead-head,.card.sent .trust3{display:none}
 /* location line in the top bar */
 .topbar .loc{display:inline-flex;align-items:center;gap:8px;text-align:left}
+/* on phones the location drops to its own row, so centre the pin and the words together */
+@media(max-width:900px){
+  .topbar .loc{display:flex;width:100%;justify-content:center;text-align:center}
+}
 .topbar .loc svg{width:16px;height:16px;flex:0 0 16px;color:var(--champ);stroke-width:1.5}
 .topbar .loc small{display:block;font-size:10.5px;opacity:.72;font-style:italic}
 .topbar a.tel{display:inline-flex;align-items:center;gap:8px}
