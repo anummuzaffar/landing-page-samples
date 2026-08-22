@@ -317,6 +317,19 @@ input::placeholder{color:#b8b0b6}
 .trust3 em{display:block;font-style:normal;font-size:12.2px;font-weight:700;color:#4b4149;margin-top:3px}
 .trust3 span{display:block;font-size:11.2px;color:var(--grey);line-height:1.35;margin-top:2px}
 .trust3 svg{width:17px;height:17px;color:var(--plum);opacity:.8;margin:0 auto 5px;display:block;stroke-width:1.4}
+/* the clinic's own reception photo sits behind the card, for a bit of the room's feel.
+   Upload clinic-bg.jpg to the theme's Assets; asset_url keeps it on Shopify's CDN. */
+.lp:before{background-image:linear-gradient(rgba(28,20,30,.5),rgba(28,20,30,.68)),url('assets/clinic-bg.jpg');
+  background-size:cover;background-position:64% center}
+.card{box-shadow:0 26px 60px rgba(0,0,0,.45)}
+.lp .fineprint{color:rgba(255,255,255,.82)}
+@media(max-width:700px){
+  /* a phone card fills the screen, so the photo becomes a band across the top instead */
+  .lp{padding-top:172px;background:linear-gradient(180deg,var(--taupe-soft) 0%,var(--pearl) 60%)}
+  .lp:before{bottom:auto;height:196px;background-position:center 46%;
+    background-image:linear-gradient(rgba(28,20,30,.12),rgba(28,20,30,.42)),url('assets/clinic-bg.jpg')}
+  .lp .fineprint{color:var(--grey)}
+}
 /* the confirmation replaces the whole card, so the new blocks hide with the rest */
 .card.sent .lead-head,.card.sent .trust3{display:none}
 /* location line in the top bar */
