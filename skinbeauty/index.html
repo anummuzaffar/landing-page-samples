@@ -256,6 +256,17 @@ footer a{color:var(--champ)}
 [id*="qikify"],[class*="qikify"],
 [id*="contactform"],[class*="contactform"],
 [id*="contact-form-widget"],[class*="contact-form-widget"]{display:none!important}
+/* the clinic's own reception photo behind the card, same treatment as the Meta page.
+   clinic-bg.jpg already lives in the theme's Assets. */
+.lp:before{background-image:linear-gradient(rgba(28,20,30,.5),rgba(28,20,30,.68)),url('assets/clinic-bg.jpg');
+  background-size:cover;background-position:64% center}
+.card{box-shadow:0 26px 60px rgba(0,0,0,.45)}
+@media(max-width:700px){
+  /* a phone card fills the screen, so the photo becomes a band across the top instead */
+  .lp{padding-top:172px;background:linear-gradient(180deg,var(--taupe-soft) 0%,var(--pearl) 60%)}
+  .lp:before{bottom:auto;height:196px;background-position:center 46%;
+    background-image:linear-gradient(rgba(28,20,30,.12),rgba(28,20,30,.42)),url('assets/clinic-bg.jpg')}
+}
 </style>
 </head>
 <body>
@@ -267,7 +278,7 @@ footer a{color:var(--champ)}
       <img src="assets/logo.png" width="46" height="46" alt="Skin &amp; Beauty at Hills logo">
       <div class="txt">Skin&amp;Beauty<small>AT HILLS</small></div>
     </div>
-    <span class="loc">Rouse Hill, NSW · Open Tue to Sat</span>
+    <span class="loc">Rouse Hill, NSW</span>
     <a class="tel" href="tel:+61400972584" data-cta="header-call">📞 0400 972 584</a>
   </div>
 </div>
