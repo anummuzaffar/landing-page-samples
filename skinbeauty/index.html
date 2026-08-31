@@ -27,6 +27,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   --grey:#6e6e73; --champ:#e6c79c; --champ-soft:#f8efe0; --white:#fff;
   --ink:#3a3238; --line:#e6e1dc; --ok:#2f7d5d;
   --r:14px; --shadow:0 18px 46px rgba(75,60,78,.14);
+  --burg:#7a2440; --burg-d:#5d1a30;
 }
 *{box-sizing:border-box}
 /* keep the brand palette on phones that force a dark theme (Samsung Internet, some Chrome builds) */
@@ -108,9 +109,11 @@ img,svg{max-width:100%;display:block}
 .already .txt{flex:1;line-height:1.35}
 .already .txt b{display:block;font-size:14.5px;color:var(--plum)}
 .already .txt span{font-size:13px;color:var(--grey)}
-.bk{background:var(--plum);color:var(--champ);border:1.5px solid var(--plum);
+.bk{background:var(--burg);color:#fff;border:1.5px solid var(--burg);
   padding:12px 18px;font-size:14.5px;white-space:nowrap}
-.bk:hover{background:var(--plum-d);border-color:var(--plum-d)}
+.bk:hover{background:var(--burg-d);border-color:var(--burg-d)}
+.offernote{font-size:12.8px;color:#7c5b23;line-height:1.45;margin:-6px 0 16px;text-align:center}
+
 .bk-light{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
 .bk-light:hover{background:#fff;color:var(--plum);border-color:#fff}
 
@@ -149,7 +152,8 @@ input:focus,select:focus{outline:0;border-color:var(--plum);box-shadow:0 0 0 3px
 .msg .urgent{margin:0;font-size:15px}
 .msg .urgent a{color:#1f5d43;font-weight:700;white-space:nowrap}
 /* after a successful submit the card shows the confirmation only */
-.card.sent .cardtrust,.card.sent h2,.card.sent .sub,.card.sent .already{display:none}
+.card.sent .cardtrust,.card.sent h2,.card.sent .sub,.card.sent .already,
+.card.sent .offer,.card.sent .offernote{display:none}
 
 /* sections */
 section{padding:58px 0}
@@ -291,8 +295,18 @@ footer a{color:var(--champ)}
         <div class="hours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.3l3.4 2"/></svg> Open <b>Tue to Sat</b></div>
       </div>
 
-      <h2>Which treatment are you interested in?</h2>
-      <p class="sub">Tap one, then add your name and number.</p>
+      <h2>Not sure which treatment is right for your skin?</h2>
+      <p class="sub">Find out with our comprehensive skin analysis.</p>
+
+      <div class="offer">
+        <div>
+          <div class="free">$49</div>
+          <div class="what">Comprehensive skin analysis</div>
+        </div>
+        <span class="worth">Normally $99</span>
+      </div>
+      <p class="offernote">Receive a personalised assessment and treatment plan, then redeem your
+        $49 consultation fee when you book a treatment on the same day.</p>
 
       <form id="leadForm" novalidate>
         <div class="picklabel">1. Choose your treatment</div>
@@ -338,7 +352,7 @@ footer a{color:var(--champ)}
         </div>
 
         <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn b1" type="submit">Request Call Back →</button>
+        <button class="btn b1" type="submit">Claim your $49 consultation →</button>
         <p class="fineprint">Your details stay private</p>
       </form>
 
