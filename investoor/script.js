@@ -60,6 +60,19 @@
             langMenu.classList.toggle("open");
         });
         document.addEventListener("click", closeLang);
+
+        /* Preview mode: switching only updates the label. On the live site each
+           entry gets its href from data-live-base + the language code. */
+        var langLabel = document.getElementById("langLabel");
+        langMenu.querySelectorAll("a[data-lang]").forEach(function (a) {
+            a.addEventListener("click", function (e) {
+                e.preventDefault();
+                langMenu.querySelectorAll("a[data-lang]").forEach(function (o) { o.classList.remove("active"); });
+                a.classList.add("active");
+                if (langLabel) langLabel.textContent = a.getAttribute("data-lang").toUpperCase();
+                closeLang();
+            });
+        });
     }
 
     /* ---------- 4. Yield calculator ---------- */
