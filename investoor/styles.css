@@ -34,7 +34,7 @@
 
 /* ---------- 2. Reset ---------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 110px; overflow-x: hidden; max-width: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 120px; }
 body {
     background: var(--bg);
     color: var(--text);
@@ -42,7 +42,7 @@ body {
     font-size: 16px;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -108,7 +108,7 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
     background: #05080e;
     border-bottom: 1px solid var(--border);
     font-size: 0.78rem;
-    position: relative; z-index: 60;
+    position: relative; z-index: 40;
 }
 .ticker-inner { display: flex; align-items: center; gap: 26px; height: 38px; overflow-x: auto; scrollbar-width: none; }
 .ticker-inner::-webkit-scrollbar { display: none; }
@@ -121,7 +121,7 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
 
 /* ---------- 6. Header ---------- */
 .header {
-    position: sticky; top: 0; z-index: 50;
+    position: -webkit-sticky; position: sticky; top: 0; z-index: 50;
     background: rgba(7, 11, 18, 0.82);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
