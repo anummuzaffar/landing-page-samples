@@ -40,6 +40,7 @@ window.INV_I18N = (function () {
         "0 % Eigenrisiko": "0 % own risk",
         "Schnelle Auszahlungen": "Fast payouts",
         "Festanlage ab 50 €": "Fixed deposit from 50 €",
+        "Bis 14,00 % Festzins": "Up to 14.00 % fixed interest",
 
         /* account preview card */
         "Investoor Konto-Übersicht": "Investoor account overview",

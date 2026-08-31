@@ -203,9 +203,9 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
 .hero p.lead { color: var(--text-soft); font-size: 1.06rem; max-width: 560px; margin-bottom: 30px; }
 .hero p.lead b { color: var(--text); }
 .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
-.hero-points { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px; max-width: 520px; }
-.hero-points li { display: flex; align-items: center; gap: 9px; font-size: 0.9rem; color: var(--text-soft); }
-.hero-points i { color: var(--accent); font-size: 0.86rem; }
+.hero-points { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 20px; max-width: 540px; }
+.hero-points li { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; font-weight: 600; color: var(--text-soft); }
+.hero-points i { font-size: 0.95rem; }
 
 .pcard {
     background: linear-gradient(160deg, var(--surface-2), var(--surface));
