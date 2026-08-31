@@ -94,7 +94,7 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
 .btn-ghost { background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-strong); color: var(--text); }
 .btn-ghost:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--accent); }
 .btn-block { width: 100%; }
-.btn-sm { padding: 11px 18px; font-size: 0.88rem; }
+.btn-sm { padding: 10px 15px; font-size: 0.83rem; }
 
 /* ---------- 5. Ticker ---------- */
 .ticker {
@@ -132,22 +132,22 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
 .brand-text span { color: var(--accent); }
 .brand-tag { display: block; font-size: 0.55rem; letter-spacing: 0.18em; color: var(--muted); font-weight: 600; text-transform: uppercase; }
 
-.nav { display: flex; align-items: center; gap: 2px; margin-left: 4px; }
+.nav { display: flex; align-items: center; gap: 2px; margin-left: 4px; min-width: 0; overflow: hidden; }
 .nav a {
-    padding: 9px 9px; border-radius: 9px;
-    font-size: 0.85rem; font-weight: 600; color: var(--text-soft); white-space: nowrap;
+    padding: 8px 7px; border-radius: 9px;
+    font-size: 0.81rem; font-weight: 600; color: var(--text-soft); white-space: nowrap;
     transition: color 0.15s ease, background 0.15s ease;
 }
 .nav a:hover { color: var(--text); background: rgba(255, 255, 255, 0.05); }
 .nav a.active { color: var(--accent); }
 .nav a.hot { color: var(--gold); }
 
-.header-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+.header-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; white-space: nowrap; }
 .lang { position: relative; }
 .lang-btn {
-    display: flex; align-items: center; gap: 7px;
-    padding: 9px 12px; border-radius: 9px;
-    border: 1px solid var(--border); font-size: 0.84rem; font-weight: 600; color: var(--text-soft);
+    display: flex; align-items: center; gap: 6px;
+    padding: 8px 10px; border-radius: 9px;
+    border: 1px solid var(--border); font-size: 0.8rem; font-weight: 600; color: var(--text-soft);
 }
 .lang-btn:hover { border-color: var(--border-strong); }
 .lang-menu {
@@ -162,7 +162,7 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
 .lang-menu a:hover { background: rgba(255, 255, 255, 0.06); color: var(--text); }
 .lang-menu a.active { color: var(--accent); }
 .lang-note { padding: 10px 12px 4px; font-size: 0.7rem; color: #5d6b7e; border-top: 1px solid var(--border); margin-top: 4px; }
-.link-login { font-size: 0.88rem; font-weight: 600; color: var(--text-soft); padding: 9px 6px; }
+.link-login { font-size: 0.82rem; font-weight: 600; color: var(--text-soft); padding: 9px 4px; }
 .link-login:hover { color: var(--text); }
 
 .burger { display: none; flex-direction: column; gap: 5px; padding: 8px; }
@@ -221,9 +221,9 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
 .pstat small { color: var(--muted); font-size: 0.72rem; }
 .chart-box { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; }
 .chart-box header { display: flex; justify-content: space-between; font-size: 0.74rem; color: var(--muted); margin-bottom: 10px; }
-.pcard-note { text-align: center; font-size: 0.7rem; color: #5d6b7e; margin-top: 14px; }
+.pcard-note { text-align: right; font-size: 0.7rem; color: #5d6b7e; margin-top: 14px; }
 .float-badge {
-    position: absolute; left: -18px; bottom: 74px;
+    position: absolute; left: -16px; bottom: -22px;
     display: flex; align-items: center; gap: 10px;
     background: var(--surface-2); border: 1px solid var(--border-strong);
     border-radius: 14px; padding: 11px 15px; box-shadow: var(--shadow);
@@ -457,7 +457,7 @@ select option { background: var(--surface); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* ---------- 20. Responsive ---------- */
-@media (max-width: 1240px) {
+@media (max-width: 1340px) {
     .nav { display: none; }
     .burger { display: flex; }
     .hero-grid { gap: 40px; }
