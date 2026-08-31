@@ -343,7 +343,7 @@ select option { background: var(--surface); }
 /* ---------- 13. Steps ---------- */
 .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px 26px; position: relative; overflow: hidden; }
-.step-no { position: absolute; top: 18px; right: 22px; font-family: "Space Grotesk", sans-serif; font-size: 2.4rem; font-weight: 700; color: rgba(255, 255, 255, 0.05); }
+.step-no { position: absolute; top: 14px; right: 20px; font-family: "Space Grotesk", sans-serif; font-size: 2.9rem; font-weight: 700; color: rgba(23, 198, 230, 0.22); }
 .step-ico { width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; background: rgba(23, 198, 230, 0.1); color: var(--accent); margin-bottom: 18px; }
 .step h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .step p { color: var(--muted); font-size: 0.89rem; }
