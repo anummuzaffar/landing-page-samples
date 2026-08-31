@@ -5,11 +5,13 @@
 (function () {
     "use strict";
 
+    var i18n = window.INV_I18N || { t: function (s) { return s; }, locale: function () { return "de-DE"; }, apply: function () {} };
+
     var euro = function (n) {
-        return n.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
+        return n.toLocaleString(i18n.locale(), { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
     };
     var int = function (n) {
-        return Math.round(n).toLocaleString("de-DE");
+        return Math.round(n).toLocaleString(i18n.locale());
     };
 
     /* ---------- 1. Sticky header ---------- */
@@ -64,12 +66,23 @@
         /* Preview mode: switching only updates the label. On the live site each
            entry gets its href from data-live-base + the language code. */
         var langLabel = document.getElementById("langLabel");
+        document.addEventListener("inv:lang", function (e) {
+            var code = e.detail.lang;
+            if (langLabel) langLabel.textContent = code.toUpperCase();
+            langMenu.querySelectorAll("a[data-lang]").forEach(function (o) {
+                o.classList.toggle("active", o.getAttribute("data-lang") === code);
+            });
+            calculate();
+        });
         langMenu.querySelectorAll("a[data-lang]").forEach(function (a) {
             a.addEventListener("click", function (e) {
                 e.preventDefault();
                 langMenu.querySelectorAll("a[data-lang]").forEach(function (o) { o.classList.remove("active"); });
                 a.classList.add("active");
-                if (langLabel) langLabel.textContent = a.getAttribute("data-lang").toUpperCase();
+                var code = a.getAttribute("data-lang");
+                if (langLabel) langLabel.textContent = code.toUpperCase();
+                i18n.apply(code);
+                calculate();
                 closeLang();
             });
         });
@@ -103,10 +116,10 @@
 
         resTotal.textContent = euro(capital + gain);
         resGain.textContent = "+ " + euro(gain);
-        resRate.textContent = rate.toLocaleString("de-DE", { minimumFractionDigits: 2 }) + " % p.a.";
-        resMonthly.textContent = euro(gain / months) + " / Monat";
+        resRate.textContent = rate.toLocaleString(i18n.locale(), { minimumFractionDigits: 2 }) + " % p.a.";
+        resMonthly.textContent = euro(gain / months) + " " + i18n.t("/ Monat");
         resCapital.textContent = euro(capital);
-        resTitle.textContent = "Gesamtauszahlung (" + months + " Monate Laufzeit)";
+        resTitle.textContent = i18n.t("Gesamtauszahlung") + " (" + months + " " + i18n.t("Monate Laufzeit") + ")";
     }
 
     if (capitalRange) {

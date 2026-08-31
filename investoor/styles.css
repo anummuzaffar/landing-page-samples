@@ -110,7 +110,7 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
 .tick .up { color: var(--green); }
 .tick .down { color: #f2645a; }
 .tick.badge-tick { color: var(--gold); }
-.ticker-note { margin-left: auto; color: #5d6b7e; white-space: nowrap; padding-left: 20px; }
+.ticker-note { margin-left: auto; color: #5d6b7e; white-space: nowrap; padding-left: 18px; position: sticky; right: 0; background: #05080e; }
 
 /* ---------- 6. Header ---------- */
 .header {
