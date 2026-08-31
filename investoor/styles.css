@@ -221,16 +221,17 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
 .pstat small { color: var(--muted); font-size: 0.72rem; }
 .chart-box { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; }
 .chart-box header { display: flex; justify-content: space-between; font-size: 0.74rem; color: var(--muted); margin-bottom: 10px; }
-.pcard-note { text-align: right; font-size: 0.7rem; color: #5d6b7e; margin-top: 14px; }
-.float-badge {
-    position: absolute; left: -16px; bottom: -22px;
-    display: flex; align-items: center; gap: 10px;
-    background: var(--surface-2); border: 1px solid var(--border-strong);
-    border-radius: 14px; padding: 11px 15px; box-shadow: var(--shadow);
+.pcard-note { text-align: center; font-size: 0.7rem; color: #5d6b7e; margin-top: 14px; }
+.pcard-badge {
+    display: flex; align-items: center; gap: 11px;
+    margin-top: 12px; padding: 12px 14px;
+    background: rgba(16, 185, 129, 0.07);
+    border: 1px solid rgba(16, 185, 129, 0.22);
+    border-radius: var(--radius-sm);
 }
-.float-badge i { color: var(--green); }
-.float-badge b { font-size: 0.85rem; }
-.float-badge small { display: block; color: var(--muted); font-size: 0.7rem; }
+.pcard-badge i { color: var(--green); }
+.pcard-badge b { font-size: 0.85rem; }
+.pcard-badge small { display: block; color: var(--muted); font-size: 0.72rem; }
 
 /* ---------- 8. Stats strip ---------- */
 .stats { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg-soft); }
@@ -467,8 +468,7 @@ select option { background: var(--surface); }
     .hero { padding: 56px 0 70px; }
     .hero-grid { grid-template-columns: 1fr; }
     .hero p.lead { max-width: none; }
-    .float-badge { display: none; }
-    .stats-grid { grid-template-columns: 1fr 1fr; }
+        .stats-grid { grid-template-columns: 1fr 1fr; }
     .stat:nth-child(2) { border-right: none; }
     .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid var(--border); }
     .offer-grid, .price-grid, .steps-grid, .feat-grid, .quote-grid, .post-grid { grid-template-columns: 1fr 1fr; }
