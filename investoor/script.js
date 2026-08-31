@@ -173,7 +173,7 @@
             ptabs.forEach(function (t) { t.classList.remove("active"); });
             tab.classList.add("active");
             document.querySelectorAll(".plan-group").forEach(function (g) {
-                g.hidden = g.getAttribute("data-group") !== group;
+                g.hidden = group !== "all" && g.getAttribute("data-group") !== group;
             });
         });
     });

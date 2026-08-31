@@ -281,6 +281,11 @@ window.INV_I18N = (function () {
         "Persönlich für Sie da, mit kompetenter Begleitung und direkter Unterstützung in jeder Phase.": "Personally there for you, with expert guidance and direct support at every stage.",
         "Weiterlesen": "Read more",
 
+        "Alle Angebote": "All offers",
+        "Festanlagen (14 % p.a.)": "Fixed deposits (14 % p.a.)",
+        "Trading Konten": "Trading accounts",
+        "Academy Pläne": "Academy plans",
+
         /* strings built by script.js */
         "Gesamtauszahlung": "Total payout",
         "Monate Laufzeit": "months term",
