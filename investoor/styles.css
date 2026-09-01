@@ -693,3 +693,26 @@ body[data-theme="onyx"] .partner { background: linear-gradient(135deg, rgba(245,
 body[data-theme="onyx"] .cta { background: linear-gradient(150deg, rgba(16, 185, 129, 0.12), rgba(245, 158, 11, 0.08) 60%, transparent); }
 body[data-theme="onyx"] .chart-box path { stroke: #10b981; }
 body[data-theme="onyx"] .chart-box stop { stop-color: #10b981; }
+
+/* --- Grey: neutral grey, no colour tint in the background --- */
+body[data-theme="grey"] {
+    --bg: #222222;
+    --bg-soft: #2a2a2a;
+    --surface: #313131;
+    --surface-2: #3a3a3a;
+    --border: rgba(255, 255, 255, 0.11);
+    --border-strong: rgba(255, 255, 255, 0.22);
+    --text: #f6f6f6;
+    --text-soft: #dcdcdc;
+    --muted: #a6a6a6;
+}
+body[data-theme="grey"] .ticker,
+body[data-theme="grey"] .ticker-note { background: #1a1a1a; }
+body[data-theme="grey"] .header { background: rgba(34, 34, 34, 0.88); }
+body[data-theme="grey"] .header.scrolled { background: rgba(34, 34, 34, 0.97); }
+body[data-theme="grey"] .glow-bg::before {
+    background:
+        radial-gradient(620px 320px at 12% 0%, rgba(6, 182, 212, 0.09), transparent 70%),
+        radial-gradient(520px 300px at 88% 30%, rgba(255, 255, 255, 0.05), transparent 70%);
+}
+body[data-theme="grey"] .partner { background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, #2a2a2a 100%); }
