@@ -114,9 +114,11 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
 .ticker-inner::-webkit-scrollbar { display: none; }
 .tick { display: flex; align-items: center; gap: 7px; white-space: nowrap; color: var(--muted); }
 .tick b { color: var(--text-soft); font-weight: 600; }
-.tick .up { color: var(--green); }
-.tick .down { color: #f2645a; }
+.tick .up, .chg.up { color: var(--green); }
+.tick .down, .chg.down { color: #f2645a; }
 .tick.badge-tick { color: var(--gold); }
+.ticker-inner[data-live="1"] .ticker-note { color: var(--green); }
+.ticker-inner[data-live] .tick:not(.is-live):not(.badge-tick) { opacity: 0.55; }
 .ticker-note { margin-left: auto; color: #5d6b7e; white-space: nowrap; padding-left: 18px; position: sticky; right: 0; background: #05080e; }
 
 /* ---------- 6. Header ---------- */

@@ -11,6 +11,8 @@ window.INV_I18N = (function () {
         /* ticker + header */
         "Festanlage bis 14,00 % p.a.": "Fixed deposit up to 14.00 % p.a.",
         "Indikativ": "Indicative",
+        "Live": "Live",
+        "Teilweise live": "Partly live",
         "Institutional Capital": "Institutional Capital",
         "Startseite": "Home",
         "Fremdgeldkonten": "Funded accounts",
