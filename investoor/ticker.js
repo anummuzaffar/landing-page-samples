@@ -57,8 +57,12 @@
         strip.setAttribute("data-live", live >= total ? "1" : "partial");
         if (!note) return;
         var en = locale() === "en-US";
-        note.textContent = live >= total ? (en ? "Live" : "Live")
-                                         : (en ? "Partly live" : "Teilweise live");
+        if (!CONFIG.TWELVE_DATA_KEY) {
+            /* only part of the strip has a real source, so nothing claims to be live */
+            note.textContent = en ? "Indicative" : "Indikativ";
+            return;
+        }
+        note.textContent = live >= total ? "Live" : (en ? "Partly live" : "Teilweise live");
     }
 
     function getJSON(url) {
@@ -109,7 +113,39 @@
         else loadFree();
     }
 
+    /* Values without a data source drift slightly, the way the reference demo
+       does it, so the strip looks alive. They stay marked as indicative. */
+    function drift() {
+        [].forEach.call(strip.querySelectorAll(".tick[data-symbol]:not(.is-live)"), function (el) {
+            var val = el.querySelector(".val");
+            var chg = el.querySelector(".chg");
+            if (!val) return;
+            var raw = val.textContent.replace(/\./g, "").replace(",", ".");
+            var num = parseFloat(raw);
+            if (isNaN(num) || num <= 0) return;
+            var decimals = (val.textContent.split(",")[1] || "").length;
+            var delta = (Math.random() - 0.48) * num * 0.0009;
+            var next = num + delta;
+            val.textContent = next.toLocaleString(locale(), {
+                minimumFractionDigits: decimals,
+                maximumFractionDigits: decimals
+            });
+            if (chg) {
+                var pct = parseFloat(chg.textContent.replace(",", ".").replace(/[^0-9.-]/g, ""));
+                if (!isNaN(pct)) {
+                    pct = pct + (delta / num) * 100;
+                    var up = pct >= 0;
+                    chg.textContent = (up ? "+" : "") + pct.toLocaleString(locale(), {
+                        minimumFractionDigits: 2, maximumFractionDigits: 2
+                    }) + " %";
+                    chg.className = "chg " + (up ? "up" : "down");
+                }
+            }
+        });
+    }
+
     refresh();
     setInterval(refresh, CONFIG.REFRESH_MS);
+    setInterval(drift, 3000);
     document.addEventListener("inv:lang", refresh);
 })();
