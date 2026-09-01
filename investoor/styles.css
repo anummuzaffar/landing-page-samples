@@ -110,7 +110,15 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
     font-size: 0.78rem;
     position: relative; z-index: 40;
 }
-.ticker-inner { display: flex; align-items: center; gap: 26px; height: 38px; overflow-x: auto; scrollbar-width: none; }
+.ticker-inner { display: flex; align-items: center; gap: 16px; height: 38px; overflow: hidden; }
+.ticker-label { display: flex; align-items: center; gap: 7px; flex-shrink: 0; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-size: 0.72rem; }
+.ticker-label .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: tickPulse 1.8s ease-in-out infinite; }
+@keyframes tickPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+.ticker-viewport { flex: 1; overflow: hidden; }
+.ticker-track { display: flex; align-items: center; gap: 26px; width: max-content; animation: tickerScroll 45s linear infinite; }
+.ticker-inner:hover .ticker-track { animation-play-state: paused; }
+@keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
 .ticker-inner::-webkit-scrollbar { display: none; }
 .tick { display: flex; align-items: center; gap: 7px; white-space: nowrap; color: var(--muted); }
 .tick b { color: var(--text-soft); font-weight: 600; }

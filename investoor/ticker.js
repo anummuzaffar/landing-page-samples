@@ -21,12 +21,20 @@
     if (!strip) return;
 
     var note = document.querySelector(".ticker-note");
-    var items = {};
+    var track = document.getElementById("tickerTrack");
+
+    /* the row is duplicated so the marquee can loop without a visible jump */
+    if (track && !track.getAttribute("data-cloned")) {
+        track.innerHTML += track.innerHTML;
+        track.setAttribute("data-cloned", "1");
+    }
+
+    function nodes(symbol) {
+        return strip.querySelectorAll('.tick[data-symbol="' + symbol + '"]');
+    }
+    var symbols = {};
     [].forEach.call(strip.querySelectorAll(".tick[data-symbol]"), function (el) {
-        items[el.getAttribute("data-symbol")] = {
-            value: el.querySelector(".val"),
-            change: el.querySelector(".chg")
-        };
+        symbols[el.getAttribute("data-symbol")] = true;
     });
 
     var locale = function () {
@@ -34,25 +42,34 @@
     };
 
     function render(symbol, price, changePct, decimals) {
-        var item = items[symbol];
-        if (!item || price == null || isNaN(price)) return;
-        item.value.textContent = Number(price).toLocaleString(locale(), {
-            minimumFractionDigits: decimals,
-            maximumFractionDigits: decimals
+        if (!symbols[symbol] || price == null || isNaN(price)) return;
+        [].forEach.call(nodes(symbol), function (el) {
+            var value = el.querySelector(".val");
+            var change = el.querySelector(".chg");
+            if (value) {
+                value.textContent = Number(price).toLocaleString(locale(), {
+                    minimumFractionDigits: decimals,
+                    maximumFractionDigits: decimals
+                });
+            }
+            if (change && changePct != null && !isNaN(changePct)) {
+                var up = changePct >= 0;
+                change.textContent = (up ? "+" : "") +
+                    Number(changePct).toLocaleString(locale(), { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " %";
+                change.className = "chg " + (up ? "up" : "down");
+            }
+            el.classList.add("is-live");
         });
-        if (item.change && changePct != null && !isNaN(changePct)) {
-            var up = changePct >= 0;
-            item.change.textContent = (up ? "+" : "") +
-                Number(changePct).toLocaleString(locale(), { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " %";
-            item.change.className = "chg " + (up ? "up" : "down");
-        }
-        item.value.parentNode.classList.add("is-live");
         updateNote();
     }
 
     function updateNote() {
-        var total = Object.keys(items).length;
-        var live = strip.querySelectorAll(".tick.is-live").length;
+        var total = Object.keys(symbols).length;
+        var live = {};
+        [].forEach.call(strip.querySelectorAll(".tick.is-live"), function (el) {
+            live[el.getAttribute("data-symbol")] = true;
+        });
+        live = Object.keys(live).length;
         if (!live) return;
         strip.setAttribute("data-live", live >= total ? "1" : "partial");
         if (!note) return;
@@ -115,32 +132,49 @@
 
     /* Values without a data source drift slightly, the way the reference demo
        does it, so the strip looks alive. They stay marked as indicative. */
+    /* Values without a data source drift slightly, the way the reference demo
+       does it, so the strip looks alive. They stay marked as indicative.
+       Every copy of a symbol gets the same value, the row is duplicated. */
     function drift() {
-        [].forEach.call(strip.querySelectorAll(".tick[data-symbol]:not(.is-live)"), function (el) {
-            var val = el.querySelector(".val");
-            var chg = el.querySelector(".chg");
+        Object.keys(symbols).forEach(function (sym) {
+            var first = strip.querySelector('.tick[data-symbol="' + sym + '"]');
+            if (!first || first.classList.contains("is-live")) return;
+
+            var val = first.querySelector(".val");
+            var chg = first.querySelector(".chg");
             if (!val) return;
-            var raw = val.textContent.replace(/\./g, "").replace(",", ".");
-            var num = parseFloat(raw);
+
+            var text = val.textContent;
+            var decimals = (text.split(",")[1] || "").length;
+            var num = parseFloat(text.replace(/\./g, "").replace(",", "."));
             if (isNaN(num) || num <= 0) return;
-            var decimals = (val.textContent.split(",")[1] || "").length;
+
             var delta = (Math.random() - 0.48) * num * 0.0009;
             var next = num + delta;
-            val.textContent = next.toLocaleString(locale(), {
+            var nextText = next.toLocaleString(locale(), {
                 minimumFractionDigits: decimals,
                 maximumFractionDigits: decimals
             });
+
+            var pctText = null, cls = null;
             if (chg) {
                 var pct = parseFloat(chg.textContent.replace(",", ".").replace(/[^0-9.-]/g, ""));
                 if (!isNaN(pct)) {
                     pct = pct + (delta / num) * 100;
                     var up = pct >= 0;
-                    chg.textContent = (up ? "+" : "") + pct.toLocaleString(locale(), {
+                    pctText = (up ? "+" : "") + pct.toLocaleString(locale(), {
                         minimumFractionDigits: 2, maximumFractionDigits: 2
                     }) + " %";
-                    chg.className = "chg " + (up ? "up" : "down");
+                    cls = "chg " + (up ? "up" : "down");
                 }
             }
+
+            [].forEach.call(nodes(sym), function (el) {
+                var v = el.querySelector(".val");
+                var c = el.querySelector(".chg");
+                if (v) v.textContent = nextText;
+                if (c && pctText) { c.textContent = pctText; c.className = cls; }
+            });
         });
     }
 
