@@ -133,8 +133,14 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
 .brand { display: flex; align-items: center; gap: 11px; flex-shrink: 0; }
 .logo { height: 34px; width: auto; }
 .logo-on-light { display: none; }
-body[data-theme="light"] .logo-on-dark { display: none; }
-body[data-theme="light"] .logo-on-light { display: block; }
+/* light theme keeps the client's own logo lockup: white wordmark on the blue block */
+body[data-theme="light"] .logo-on-dark { display: block; }
+body[data-theme="light"] .logo-on-light { display: none; }
+body[data-theme="light"] .brand {
+    background: #1446d6; border-radius: 10px; padding: 8px 14px;
+}
+body[data-theme="light"] .drawer .brand,
+body[data-theme="light"] .footer .brand { padding: 7px 12px; }
 .drawer .logo, .footer .logo { height: 30px; }
 .brand-mark {
     width: 40px; height: 40px; border-radius: 12px;
