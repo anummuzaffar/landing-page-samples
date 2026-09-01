@@ -131,6 +131,11 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
 .header.scrolled { background: rgba(7, 11, 18, 0.96); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); }
 .header-inner { display: flex; align-items: center; gap: 16px; height: var(--header-h); max-width: 1340px; }
 .brand { display: flex; align-items: center; gap: 11px; flex-shrink: 0; }
+.logo { height: 34px; width: auto; }
+.logo-on-light { display: none; }
+body[data-theme="light"] .logo-on-dark { display: none; }
+body[data-theme="light"] .logo-on-light { display: block; }
+.drawer .logo, .footer .logo { height: 30px; }
 .brand-mark {
     width: 40px; height: 40px; border-radius: 12px;
     display: grid; place-items: center;
