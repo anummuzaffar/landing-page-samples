@@ -16,7 +16,7 @@
 
     /* ---------- 0. Colour theme for the preview (?theme=steel|royal|light) ---------- */
     var th = /[?&](?:theme|bg)=([a-z]+)/i.exec(window.location.search);
-    if (th && ["steel", "royal", "light"].indexOf(th[1].toLowerCase()) > -1) {
+    if (th && ["steel", "royal", "light", "onyx"].indexOf(th[1].toLowerCase()) > -1) {
         document.body.setAttribute("data-theme", th[1].toLowerCase());
     }
 
