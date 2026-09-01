@@ -55,7 +55,7 @@
         });
     }
     document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") { setDrawer(false); closeLang(); }
+        if (e.key === "Escape") { setDrawer(false); closeLang(); closeBv(); }
     });
 
     /* ---------- 3. Language dropdown ---------- */
@@ -113,16 +113,19 @@
             "linear-gradient(90deg, var(--accent) 0%, var(--accent) " + pct + "%, rgba(255,255,255,0.1) " + pct + "%)";
     }
 
+    var TERM_RATE = { 12: 14, 24: 14.5, 36: 15 };
+
     function calculate() {
         if (!capitalRange || !resTotal) return;
         var capital = parseFloat(capitalRange.value) || 0;
         var months = parseInt(durationSelect ? durationSelect.value : 12, 10);
         var years = months / 12;
-        var gain = capital * (rate / 100) * years;
+        var effective = (rate === 14 && TERM_RATE[months]) ? TERM_RATE[months] : rate;
+        var gain = capital * (effective / 100) * years;
 
         resTotal.textContent = euro(capital + gain);
         resGain.textContent = "+ " + euro(gain);
-        resRate.textContent = rate.toLocaleString(i18n.locale(), { minimumFractionDigits: 2 }) + " % p.a.";
+        resRate.textContent = effective.toLocaleString(i18n.locale(), { minimumFractionDigits: 2 }) + " % p.a.";
         resMonthly.textContent = euro(gain / months) + " " + i18n.t("/ Monat");
         resCapital.textContent = euro(capital);
         resTitle.textContent = i18n.t("Gesamtauszahlung") + " (" + months + " " + i18n.t("Monate Laufzeit") + ")";
@@ -183,6 +186,39 @@
             });
         });
     });
+
+    /* ---------- 5b. Commission and BV modal ---------- */
+    var bvModal = document.getElementById("bvModal");
+    var bvBody = document.getElementById("bvBody");
+    var bvClose = document.getElementById("bvClose");
+
+    function openBv(plan, bv, ref) {
+        if (!bvModal || !bvBody) return;
+        var en = i18n.lang && i18n.lang() === "en";
+        bvBody.innerHTML =
+            '<h4>' + (en ? "Business volume (BV)" : "Business Volume (BV)") + '</h4>' +
+            '<p>' + (en
+                ? "This plan counts with a business volume of <b>" + bv + " BV</b> in your partner network. The volume is used to calculate the matching and team bonus."
+                : "Für diesen Tarif wird ein Volumen von <b>" + bv + " BV</b> in Ihrem Partner-Netzwerk angerechnet. Dieses Volumen dient zur Berechnung des Matching- und Team-Bonus.") + '</p>' +
+            '<div class="kv"><span>' + (en ? "Plan" : "Tarif") + '</span><b>' + plan + '</b></div>' +
+            '<div class="kv"><span>' + (en ? "Business volume" : "Business Volume") + '</span><b>' + bv + ' BV</b></div>' +
+            '<div class="kv"><span>' + (en ? "Direct commission" : "Direktprovision") + '</span><b>' + ref + '</b></div>' +
+            '<div class="kv"><span>' + (en ? "Payout" : "Auszahlung") + '</span><b>' + (en ? "Monthly, lifetime" : "Monatlich, lebenslang") + '</b></div>';
+        bvModal.hidden = false;
+        document.body.style.overflow = "hidden";
+    }
+    function closeBv() {
+        if (!bvModal) return;
+        bvModal.hidden = true;
+        document.body.style.overflow = "";
+    }
+    document.querySelectorAll(".plan-info").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            openBv(btn.getAttribute("data-plan"), btn.getAttribute("data-bv"), btn.getAttribute("data-ref"));
+        });
+    });
+    if (bvClose) bvClose.addEventListener("click", closeBv);
+    if (bvModal) bvModal.addEventListener("click", function (e) { if (e.target === bvModal) closeBv(); });
 
     /* ---------- 6. FAQ accordion ---------- */
     document.querySelectorAll(".faq-item").forEach(function (item) {
