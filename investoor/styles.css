@@ -162,8 +162,8 @@ body[data-theme="light"] .footer .brand { padding: 7px 12px; }
 
 .nav { display: flex; align-items: center; gap: 2px; margin-left: 4px; min-width: 0; overflow: hidden; }
 .nav a {
-    padding: 8px 7px; border-radius: 9px;
-    font-size: 0.81rem; font-weight: 600; color: var(--text-soft); white-space: nowrap;
+    padding: 8px 6px; border-radius: 9px;
+    font-size: 0.78rem; font-weight: 600; color: var(--text-soft); white-space: nowrap;
     transition: color 0.15s ease, background 0.15s ease;
 }
 .nav a:hover { color: var(--text); background: rgba(255, 255, 255, 0.05); }
@@ -510,7 +510,7 @@ select option { background: var(--surface); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* ---------- 20. Responsive ---------- */
-@media (max-width: 1500px) {
+@media (max-width: 1400px) {
     .nav { display: none; }
     .burger { display: flex; }
     .hero-grid { gap: 40px; }
