@@ -121,7 +121,7 @@ window.INV_I18N = (function () {
         "Monatliche Gebühren": "Monthly fees",
         "Jährliche Auszahlung": "Annual payout",
         "Laufzeit": "Term",
-        "Investieren": "Invest",
+        "Jetzt starten": "Start now",
         "Beliebt": "Popular",
         "Das meistgewählte Festanlage-Konto": "The most chosen fixed deposit account",
         "Für größere Anlagesummen": "For larger investment amounts",

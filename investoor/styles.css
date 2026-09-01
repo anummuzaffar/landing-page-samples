@@ -98,8 +98,8 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
     box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
 }
 .btn-primary:hover { box-shadow: 0 16px 40px rgba(6, 182, 212, 0.4); }
-.btn-ghost { background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-strong); color: var(--text); }
-.btn-ghost:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--accent); }
+.btn-ghost { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(6, 182, 212, 0.45); color: #ffffff; }
+.btn-ghost:hover { background: rgba(6, 182, 212, 0.14); border-color: var(--accent); color: #ffffff; }
 .btn-block { width: 100%; }
 .btn-sm { padding: 10px 15px; font-size: 0.83rem; }
 
@@ -130,12 +130,12 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif; 
 .header-inner { display: flex; align-items: center; gap: 16px; height: var(--header-h); max-width: 1340px; }
 .brand { display: flex; align-items: center; gap: 11px; flex-shrink: 0; }
 .brand-mark {
-    width: 38px; height: 38px; border-radius: 11px;
+    width: 40px; height: 40px; border-radius: 12px;
     display: grid; place-items: center;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
     color: #ffffff; font-size: 1.05rem;
 }
-.brand-text { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.12rem; letter-spacing: 0.02em; }
+.brand-text { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.35rem; letter-spacing: -0.01em; color: #ffffff; }
 .brand-text span { color: var(--accent); }
 .brand-tag { display: block; font-size: 0.55rem; letter-spacing: 0.18em; color: var(--muted); font-weight: 600; text-transform: uppercase; }
 
@@ -531,4 +531,19 @@ select option { background: var(--surface); }
     .cta-btns { flex-direction: column; }
     .cta-btns .btn { width: 100%; }
     .footer-bottom .container { flex-direction: column; text-align: center; }
+}
+
+
+/* ---------- 21. Background variants (preview only, ?bg=navy | ?bg=graphite) ---------- */
+body[data-bg="navy"] {
+    --bg: #070f1f;
+    --bg-soft: #0b1730;
+    --surface: #101f3a;
+    --surface-2: #16294a;
+}
+body[data-bg="graphite"] {
+    --bg: #0d1117;
+    --bg-soft: #12181f;
+    --surface: #171e27;
+    --surface-2: #1e2732;
 }

@@ -14,6 +14,12 @@
         return Math.round(n).toLocaleString(i18n.locale());
     };
 
+    /* ---------- 0. Background variant for the preview (?bg=navy | ?bg=graphite) ---------- */
+    var bg = /[?&]bg=([a-z]+)/i.exec(window.location.search);
+    if (bg && (bg[1] === "navy" || bg[1] === "graphite")) {
+        document.body.setAttribute("data-bg", bg[1]);
+    }
+
     /* ---------- 1. Sticky header ---------- */
     var header = document.getElementById("header");
     var toTop = document.getElementById("toTop");
