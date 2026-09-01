@@ -534,16 +534,101 @@ select option { background: var(--surface); }
 }
 
 
-/* ---------- 21. Background variants (preview only, ?bg=navy | ?bg=graphite) ---------- */
-body[data-bg="navy"] {
-    --bg: #070f1f;
-    --bg-soft: #0b1730;
-    --surface: #101f3a;
-    --surface-2: #16294a;
+
+/* ============================================================
+   21. Colour themes  (?theme=steel | royal | light)
+   The page ships in the dark default; these are full palettes
+   for the client to compare before we settle on one.
+   ============================================================ */
+
+/* --- Steel: lighter blue-grey, less black than the default --- */
+body[data-theme="steel"] {
+    --bg: #151d2b;
+    --bg-soft: #1b2536;
+    --surface: #222d41;
+    --surface-2: #29364d;
+    --border: rgba(255, 255, 255, 0.10);
+    --border-strong: rgba(255, 255, 255, 0.20);
+    --text: #f5f8fc;
+    --text-soft: #d3dbe7;
+    --muted: #9fadc0;
 }
-body[data-bg="graphite"] {
-    --bg: #0d1117;
-    --bg-soft: #12181f;
-    --surface: #171e27;
-    --surface-2: #1e2732;
+body[data-theme="steel"] .ticker,
+body[data-theme="steel"] .ticker-note { background: #101725; }
+body[data-theme="steel"] .header { background: rgba(21, 29, 43, 0.88); }
+body[data-theme="steel"] .header.scrolled { background: rgba(21, 29, 43, 0.97); }
+
+/* --- Royal: indigo and violet tinted --- */
+body[data-theme="royal"] {
+    --bg: #131029;
+    --bg-soft: #191536;
+    --surface: #201b45;
+    --surface-2: #282155;
+    --border: rgba(255, 255, 255, 0.10);
+    --border-strong: rgba(255, 255, 255, 0.20);
+    --text: #f4f2ff;
+    --text-soft: #d6d1f0;
+    --muted: #a29ec4;
+    --accent: #22d3ee;
+    --accent-dark: #6366f1;
 }
+body[data-theme="royal"] .ticker,
+body[data-theme="royal"] .ticker-note { background: #0d0a20; }
+body[data-theme="royal"] .header { background: rgba(19, 16, 41, 0.88); }
+body[data-theme="royal"] .header.scrolled { background: rgba(19, 16, 41, 0.97); }
+
+/* --- Light: white and soft grey, dark text --- */
+body[data-theme="light"] {
+    --bg: #f5f7fb;
+    --bg-soft: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #eef2f8;
+    --border: rgba(15, 23, 42, 0.10);
+    --border-strong: rgba(15, 23, 42, 0.18);
+    --text: #0f172a;
+    --text-soft: #334155;
+    --muted: #64748b;
+    --accent-dark: #2563eb;
+    --shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+    color-scheme: light;
+}
+body[data-theme="light"] .ticker { background: #0f172a; }
+body[data-theme="light"] .ticker .tick b { color: #e2e8f0; }
+body[data-theme="light"] .ticker-note { background: #0f172a; }
+body[data-theme="light"] .header { background: rgba(255, 255, 255, 0.9); }
+body[data-theme="light"] .header.scrolled { background: rgba(255, 255, 255, 0.98); box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08); }
+body[data-theme="light"] .brand-text { color: #0f172a; }
+body[data-theme="light"] .glow-bg::before {
+    background:
+        radial-gradient(620px 320px at 12% 0%, rgba(6, 182, 212, 0.10), transparent 70%),
+        radial-gradient(520px 300px at 88% 30%, rgba(99, 102, 241, 0.08), transparent 70%);
+}
+/* surfaces that were white-on-dark need to flip on a light page */
+body[data-theme="light"] .btn-ghost { background: #ffffff; color: #0f172a; border-color: rgba(6, 182, 212, 0.55); }
+body[data-theme="light"] .btn-ghost:hover { background: rgba(6, 182, 212, 0.10); color: #0f172a; }
+body[data-theme="light"] .tabs { background: #ffffff; }
+body[data-theme="light"] .pstat,
+body[data-theme="light"] .chart-box,
+body[data-theme="light"] .perk,
+body[data-theme="light"] .result,
+body[data-theme="light"] .amount-input,
+body[data-theme="light"] select,
+body[data-theme="light"] .socials a { background: #f8fafc; }
+body[data-theme="light"] .pcard { background: linear-gradient(160deg, #ffffff, #f3f6fb); }
+body[data-theme="light"] .partner {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.10) 0%, #ffffff 100%);
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+}
+body[data-theme="light"] .cs-val { color: #0f172a; }
+body[data-theme="light"] .cs-bar { background: rgba(15, 23, 42, 0.10); }
+body[data-theme="light"] .commission-box { background: #ffffff; }
+body[data-theme="light"] .step-no { color: rgba(6, 182, 212, 0.30); }
+body[data-theme="light"] .lang-menu { background: #ffffff; }
+body[data-theme="light"] .drawer { background: #ffffff; }
+body[data-theme="light"] .post-tag { background: rgba(255, 255, 255, 0.9); color: var(--accent-dark); }
+body[data-theme="light"] input[type="range"] { background: rgba(15, 23, 42, 0.12); }
+body[data-theme="light"] input[type="range"]::-webkit-slider-thumb { border-color: #ffffff; }
+body[data-theme="light"] .cta { background: linear-gradient(150deg, rgba(6, 182, 212, 0.12), rgba(99, 102, 241, 0.08) 60%, #ffffff); }
+body[data-theme="light"] .calc-wrap { background: linear-gradient(150deg, #ffffff, #f3f6fb); }
+body[data-theme="light"] .hint { background: rgba(6, 182, 212, 0.08); }
+body[data-theme="light"] .quote > p { color: #334155; }
